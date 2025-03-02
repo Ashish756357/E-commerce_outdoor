@@ -1,0 +1,22 @@
+<div class="menu-icon">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<div class="sidebar" id="sidebar">
+
+    <h2>Menu</h2>
+    <ul>
+        <li><a href="wishlist.php">❤️ Wishlist</a></li>
+        <li><a href="cart.php">🛒 Cart</a></li>
+        <li class="dropdown">
+            <a href="#">❓ Help & Support</a>
+            <ul class="dropdown-menu">
+                <li><a href="account.php">Your Account</a></li>
+                <li><a href="register.php">Register</a></li>
+                <li><a href="login.php">Login</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
