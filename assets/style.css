@@ -120,7 +120,7 @@ body {
     flex: 1 1 auto; /* Flexible but doesn't force equal widths */
     min-width: 4rem; /* Adjusted for small screens */
     padding: 0.5rem 1rem;
-    background: #69676a;
+    background: #6a0dad;
     color: white;
     border: none;
     border-radius: 0.5rem;

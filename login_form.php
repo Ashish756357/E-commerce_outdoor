@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $db_username;
             $_SESSION['role'] = $role;
 
-            header("Location: " . ($role === 'admin' ? "admin_page.php" : "user_page.php"));
+            header("Location: " . ($role === 'admin' ? "./admin/admin_page.php" : "user_page.php"));
             exit;
         } else {
             echo "<script>alert('Invalid username or password!');</script>";
