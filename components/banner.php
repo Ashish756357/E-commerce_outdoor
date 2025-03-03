@@ -1,29 +1,22 @@
 <?php
-$servername = "localhost";
-$username = "root";  // Change if needed
-$password = "";      // Change if needed
-$dbname = "e commerce";
+require_once __DIR__ . '/../db_connect.php';
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Fetch the latest banner
+$result = $conn->query("SELECT image_url FROM banners ORDER BY uploaded_at DESC LIMIT 1");
+$row = $result ? $result->fetch_assoc() : null;
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($row) {
+    // Ensure correct path formatting
+    $image_url = isset($row['image_url']) ? 'hello/' . ltrim(htmlspecialchars($row['image_url']), '/') : '';
+} else {
+    $image_url = '';
 }
-
-// Fetch banner images from database
-$sql = "SELECT image_url FROM banners";
-$result = $conn->query($sql);
-
-$bannerImages = [];
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $bannerImages[] = $row['image_url'];
-    }
-}
-$conn->close();
-
-// Convert PHP array to JavaScript JSON
-echo json_encode($bannerImages);
 ?>
+
+<div class="banner-container">
+    <?php if (!empty($image_url)): ?>
+        <img src="http://localhost/<?php echo $image_url; ?>" alt="Banner Image" style="width:100%; height:auto;">
+    <?php else: ?>
+        <p>No banner available.</p>
+    <?php endif; ?>
+</div>

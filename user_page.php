@@ -44,11 +44,8 @@ if (session_status() === PHP_SESSION_NONE) {
         <a href="#">Home</a>
     </div>
 
+    <?php include 'components/banner.php'; ?>
 
-    <div class="banner">
-            <img id="banner-image" src="" alt="Banner Image">
-    </div>
-    <script src="banner.js"></script> <!-- Link JS File -->
-
+ 
 </body>
 </html>

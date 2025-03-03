@@ -23,7 +23,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
         <a href="products.php">Product Management</a>
         <a href="sales.php">Sales Overview</a>
-        <a href="banners.php">Manage Banners</a>
+        <a href="\hello\components_admin\banner_mg.php">Manage Banners</a>
         <a href="/hello/login_form.php">Logout</a>     
     </nav>
 
