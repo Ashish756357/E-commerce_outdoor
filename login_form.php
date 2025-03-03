@@ -52,21 +52,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="assets/login.css">
+    <script src="assets/js/login.js"></script>
 </head>
 <body>
 
-<div class="login-container">
-    <div class="login-box">
-        <h2>Welcome Back</h2>
-        <form method="POST">
-            <div class="input-group">
-                <input type="text" name="username" placeholder="Username" required>
-            </div>
-            <div class="input-group">
-                <input type="password" name="password" placeholder="Password" required>
-            </div>
-            <button type="submit" class="login-btn">Login</button>
-        </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="assets/login.css">
+    <script src="assets/js/login.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="left-box">
+        <img src="assets/Images/image.jpg" alt="Adventure Image">
+    </div>
+    <div class="right-box">
+        <h1>GearQuest</h1>
+        <p>Welcome to the Shopping mart who wishes to adventure</p>
+        <div class="login-box"> 
+            <form method="POST">
+                <div class="input-group">
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+        </div>
     </div>
 </div>
 
