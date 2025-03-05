@@ -5,6 +5,21 @@ require_once(__DIR__ . '/../db_connect.php');
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
+// Fetch total users count
+$userQuery = "SELECT COUNT(*) AS total_users FROM users";
+$userResult = $conn->query($userQuery);
+$userRow = $userResult->fetch_assoc();
+$total_users = $userRow['total_users']; // Get the total user count
+
+
+// Fetch total products count
+$productQuery = "SELECT COUNT(*) AS total_products FROM products";
+$productResult = $conn->query($productQuery);
+$productRow = $productResult->fetch_assoc();
+$total_products = $productRow['total_products'];
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>

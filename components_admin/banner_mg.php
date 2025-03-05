@@ -12,28 +12,55 @@ if (!isset($_SESSION['admin_id'])) {
     die("Access Denied!");
 }
 
-$upload_dir = __DIR__ . "/../uploads/"; // Directory to store uploaded images
+$upload_dir = __DIR__ . "/../uploads/";
 if (!file_exists($upload_dir)) {
-    mkdir($upload_dir, 0777, true); // Create directory if not exists
+    mkdir($upload_dir, 0777, true);
 }
 
+// Handle banner deletion
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_banner'])) {
+    $banner_id = intval($_POST['delete_banner']);
+
+    // Fetch image URL from database
+    $stmt = $conn->prepare("SELECT image_url FROM banners WHERE id = ?");
+    $stmt->bind_param("i", $banner_id);
+    $stmt->execute();
+    $stmt->bind_result($image_url);
+    $stmt->fetch();
+    $stmt->close();
+
+    if ($image_url) {
+        // Delete the image file
+        $file_path = __DIR__ . '/../' . $image_url;
+        if (file_exists($file_path)) {
+            unlink($file_path);
+        }
+
+        // Delete record from database
+        $stmt = $conn->prepare("DELETE FROM banners WHERE id = ?");
+        $stmt->bind_param("i", $banner_id);
+        if ($stmt->execute()) {
+            echo "<script>alert('Banner deleted successfully!'); window.location.href='banner.php';</script>";
+        } else {
+            echo "<script>alert('Error deleting banner!');</script>";
+        }
+    }
+}
+
+// Handle file upload
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["banner_image"])) {
     $file_name = basename($_FILES["banner_image"]["name"]);
     $target_file = $upload_dir . time() . "_" . $file_name;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-    // Allowed file types
+    
     $allowed_types = ["jpg", "jpeg", "png", "gif"];
     if (!in_array($imageFileType, $allowed_types)) {
         echo "<script>alert('Only JPG, JPEG, PNG & GIF files are allowed.'); window.history.back();</script>";
         exit;
     }
 
-    // Move file to uploads directory
     if (move_uploaded_file($_FILES["banner_image"]["tmp_name"], $target_file)) {
-        $image_url = "uploads/" . time() . "_" . $file_name; // Store relative path
-
-        // Insert image URL into database
+        $image_url = "uploads/" . time() . "_" . $file_name;
         $stmt = $conn->prepare("INSERT INTO banners (image_url) VALUES (?)");
         $stmt->bind_param("s", $image_url);
         if ($stmt->execute()) {
@@ -52,8 +79,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["banner_image"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Banner</title>
+    <title>Manage Banners</title>
     <link rel="stylesheet" href="\hello\assets\css\banner_mg.css">
+    <script src="\hello\assets\js\banner_mg.js"></script>
+
 </head>
 <body>
 
@@ -64,14 +93,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["banner_image"])) {
     <button type="submit">Upload</button>
 </form>
 
-<h2>Current Banner</h2>
+<h2>Current Banners</h2>
 <?php
-// Fetch the latest banner
-$result = $conn->query("SELECT image_url FROM banners ORDER BY uploaded_at DESC LIMIT 1");
-if ($result && $row = $result->fetch_assoc()) {
-    echo "<img src='../" . htmlspecialchars($row['image_url']) . "' alt='Banner Image' style='max-width:100%; height:auto;'>";
+$result = $conn->query("SELECT id, image_url FROM banners ORDER BY uploaded_at DESC");
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo "<div style='margin-bottom: 20px;'>";
+        echo "<img src='../" . htmlspecialchars($row['image_url']) . "' alt='Banner Image' style='max-width:100%; height:auto;'>";
+        echo "<form action='' method='POST' style='display:inline;'>
+                <input type='hidden' name='delete_banner' value='" . $row['id'] . "'>
+                <button type='submit' onclick='return confirm(\"Are you sure you want to delete this banner?\");'>❌ Delete</button>
+              </form>";
+        echo "</div>";
+    }
 } else {
-    echo "<p>No banner uploaded yet.</p>";
+    echo "<p>No banners uploaded yet.</p>";
 }
 ?>
 

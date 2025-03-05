@@ -15,6 +15,8 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="stylesheet" href="/hello/assets/css/style.css"> 
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/auto-switch.js"></script>
+    <link rel="stylesheet" href="\hello\assets\css\banner_mg.css">
+    <script src="\hello\assets\js\banner_mg.js"></script>
     <!-- Include JavaScript File -->
 </head>
 
