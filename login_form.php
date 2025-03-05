@@ -24,14 +24,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_result($id, $db_username, $db_password, $role);
         $stmt->fetch();
 
-        if ($password === $db_password) {
+        // ✅ Compare passwords directly (plain text)
+        if ($password === $db_password) { 
             $_SESSION['user_id'] = $id;
             $_SESSION['username'] = $db_username;
             $_SESSION['role'] = $role;
 
             $_SESSION['admin_id'] = $id; // Set admin session variable
             header("Location: " . ($role === 'admin' ? "./admin/admin_page.php" : "user_page.php"));
-
             exit;
         } else {
             echo "<script>alert('Invalid username or password!');</script>";
@@ -51,18 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="assets/login.css">
-    <script src="assets/js/login.js"></script>
-</head>
-<body>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="assets/login.css">
+    <link rel="stylesheet" href="assets\css\login.css">
     <script src="assets/js/login.js"></script>
 </head>
 <body>
@@ -83,6 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" name="password" placeholder="Password" required>
                 </div>
                 <button type="submit" class="login-btn">Login</button>
+                <p><a href="signup_form.php">Create Account</a></p>
             </form>
         </div>
     </div>

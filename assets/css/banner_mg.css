@@ -1,0 +1,97 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: #233b5c; /* Updated background color */
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Container */
+form, h2, img, p {
+    width: 90%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Headings */
+h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+form input[type="file"] {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    color: #fff;
+}
+
+form button {
+    background: #ff7eb3;
+    border: none;
+    padding: 12px 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    transition: background 0.3s ease-in-out;
+    width: 100%;
+}
+
+form button:hover {
+    background: #ff5582;
+}
+
+
+/* Banner Image */
+img {
+    width: 100%;
+    max-height: 250px; /* Adjust the height as needed */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    form, img, p {
+        width: 95%;
+    }
+
+    form button {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+}

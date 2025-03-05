@@ -11,7 +11,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <html lang="en">
 <head>
     <title>Admin Dashboard</title>
-<link rel="stylesheet" href="../assets/admin.css">
+<link rel="stylesheet" href="../assets/css/admin.css">
 
 
 
@@ -21,7 +21,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <h2>Admin Panel</h2>
         <a href="\hello\components_admin\users.php">User Management</a>
 
-        <a href="products.php">Product Management</a>
+        <a href="\hello\components_admin\product_mg.php">Product Management</a>
         <a href="sales.php">Sales Overview</a>
         <a href="\hello\components_admin\banner_mg.php">Manage Banners</a>
         <a href="/hello/login_form.php">Logout</a>     
