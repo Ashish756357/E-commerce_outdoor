@@ -1,0 +1,52 @@
+/* Banner Container */
+.banner-container {
+    width: 97vw;
+    max-width: 1496px;
+    height: 350px;
+    margin: 14px 109px 83px 24px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 9px;
+    position: relative; /* Needed for absolute positioning of button */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Added box shadow */
+}
+
+/* Banner Image */
+.banner-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures full coverage */
+    border-radius: 20px;
+}
+
+/* Style for Shop Now button */
+.shop-now-btn {
+    position: absolute;
+    bottom: 30px; /* Adjust to move slightly down */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.4); /* More transparent white */
+    color: rgb(64, 63, 63); /* Changed text color to grey */
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background 0.3s ease, transform 0.2s ease-in-out, color 0.3s ease;
+    backdrop-filter: blur(5px); /* Slight blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.6); /* Subtle border */
+}
+
+.shop-now-btn:hover {
+    background: rgba(255, 255, 255, 0.6); /* Slightly less transparent on hover */
+    color: rgb(14, 13, 13); /* Slightly darker grey on hover */
+    transform: translateX(-50%) scale(1.05);
+}
+
+#bannerImage {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
