@@ -15,6 +15,10 @@
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Added box shadow */
 }
 
+
+
+
+
 /* Banner Image */
 .banner-container img {
     width: 100%;
@@ -23,7 +27,7 @@
     border-radius: 20px;
 }
 
-/* Style for Shop Now button */
+/* Style for Shop Now button */z
 .shop-now-btn {
     position: absolute;
     bottom: 30px; /* Adjust to move slightly down */
