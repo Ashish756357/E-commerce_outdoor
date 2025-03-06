@@ -82,7 +82,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["banner_image"])) {
     <title>Manage Banners</title>
     <link rel="stylesheet" href="\hello\assets\css\banner_mg.css">
     <script src="\hello\assets\js\banner_mg.js"></script>
-
 </head>
 <body>
 
@@ -94,23 +93,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["banner_image"])) {
 </form>
 
 <h2>Current Banners</h2>
-<?php
-$result = $conn->query("SELECT id, image_url FROM banners ORDER BY uploaded_at DESC");
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo "<div style='margin-bottom: 20px;'>";
-        echo "<img src='../" . htmlspecialchars($row['image_url']) . "' alt='Banner Image' style='max-width:100%; height:auto;'>";
-        echo "<form action='' method='POST' style='display:inline;'>
-                <input type='hidden' name='delete_banner' value='" . $row['id'] . "'>
-                <button type='submit' onclick='return confirm(\"Are you sure you want to delete this banner?\");'>❌ Delete</button>
-              </form>";
-        echo "</div>";
+<div class="banner-container">
+    <?php
+    $result = $conn->query("SELECT id, image_url FROM banners ORDER BY uploaded_at DESC");
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo '<div class="banner-item">';
+            echo '<img src="../' . htmlspecialchars($row['image_url']) . '" alt="Banner Image">';
+            echo '<form action="" method="POST" style="display:inline;">';
+            echo '<input type="hidden" name="delete_banner" value="' . $row['id'] . '">';
+            echo '<button type="submit" class="delete-btn" onclick="return confirm(\'Are you sure you want to delete this banner?\');">❌</button>';
+            echo '</form>';
+            echo '</div>';
+        }
+    } else {
+        echo "<p>No banners uploaded yet.</p>";
     }
-} else {
-    echo "<p>No banners uploaded yet.</p>";
-}
-?>
+    ?>
+</div>
 
 </body>
-
 </html>

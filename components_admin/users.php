@@ -4,7 +4,13 @@ ini_set('display_errors', 1);
 require_once __DIR__ . '/../db_connect.php';
 
 if (session_status() == PHP_SESSION_NONE) {
-    session_start();
+  session_start();
+}
+
+
+// Ensure admin is logged in
+if (!isset($_SESSION['admin_id'])) {
+  die("Access Denied!");
 }
 
 // Handle New User Addition
@@ -72,53 +78,75 @@ $result = $conn->query("SELECT * FROM users");
 </head>
 <body>
 
-<h2>User Management</h2>
+  <header class="banner">
+    <h1>User Management</h1>
+    <!-- If you have links, you can add them here -->
+    <!-- <nav>
+      <a href="#">Home</a>
+      <a href="#">Profile</a>
+      <a href="#">Logout</a>
+    </nav> -->
+  </header>
 
-<!-- Add New User Form -->
-<h3>Add New User</h3>
-<form method="POST">
-    <label>Username:</label>
-    <input type="text" name="new_username" required>
-    
-    <label>Password:</label>
-    <input type="password" name="new_password" required>
-    
-    <label>Role:</label>
-    <select name="new_role">
-        <option value="user">User</option>
-        <option value="admin">Admin</option>
-    </select>
-    
-    <button type="submit" name="add_user">Add User</button>
-</form>
+  <!-- Main Heading -->
 
-<!-- User List -->
-<table>
-    <tr>
-        <th>ID</th><th>Username</th><th>Role</th><th>Actions</th>
-    </tr>
-    <?php while ($row = $result->fetch_assoc()): ?>
+
+  <div class="user-management-container">
+    <!-- Add New User Card -->
+    <div class="card">
+      <h3>Add New User</h3>
+      <form method="POST">
+        <label>Username:</label>
+        <input type="text" name="new_username" required>
+
+        <label>Password:</label>
+        <input type="password" name="new_password" required>
+
+        <label>Role:</label>
+        <select name="new_role">
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+
+        <button type="submit" name="add_user">Add User</button>
+      </form>
+    </div>
+
+    <!-- User List Card -->
+    <div class="card">
+      <table>
         <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+        <?php while ($row = $result->fetch_assoc()): ?>
+          <tr>
             <td><?php echo $row['id']; ?></td>
             <td>
-                <form method="POST" style="display:inline;">
-                    <input type="hidden" name="user_id" value="<?php echo $row['id']; ?>">
-                    <input type="text" name="username" value="<?php echo htmlspecialchars($row['username']); ?>" required>
+              <form method="POST" style="display:inline;">
+                <input type="hidden" name="user_id" value="<?php echo $row['id']; ?>">
+                <input type="text" name="username" value="<?php echo htmlspecialchars($row['username']); ?>" required>
             </td>
             <td>
-                <select name="role">
-                    <option value="user" <?php echo ($row['role'] == 'user') ? 'selected' : ''; ?>>User</option>
-                    <option value="admin" <?php echo ($row['role'] == 'admin') ? 'selected' : ''; ?>>Admin</option>
-                </select>
+              <select name="role">
+                <option value="user" <?php echo ($row['role'] == 'user') ? 'selected' : ''; ?>>User</option>
+                <option value="admin" <?php echo ($row['role'] == 'admin') ? 'selected' : ''; ?>>Admin</option>
+              </select>
             </td>
             <td>
-                <button type="submit" name="update_user">Update</button>
-                </form>
-                <a href="users.php?delete_id=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure?')">Delete</a>
+              <button type="submit" name="update_user">Update</button>
+              </form>
+              <a href="users.php?delete_id=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure?')">
+                Delete
+              </a>
             </td>
-        </tr>
-    <?php endwhile; ?>
-</table>
+          </tr>
+        <?php endwhile; ?>
+      </table>
+    </div>
+  </div>
 
 </body>
 </html>

@@ -37,18 +37,24 @@ $conn->close();
         <a href="\hello\components_admin\users.php">User Management</a>
 
         <a href="\hello\components_admin\product_mg.php">Product Management</a>
-        <a href="sales.php">Sales Overview</a>
+
         <a href="\hello\components_admin\banner_mg.php">Manage Banners</a>
         <a href="/hello/login_form.php">Logout</a>     
     </nav>
 
     <section>
-        <h2>Dashboard</h2>
-        <div class="dashboard-box">
-            <p>Total Users: <?php echo $total_users; ?></p>
-            <p>Total Products: <?php echo $total_products; ?></p>
-            <p>Total Sales: ₹<?php echo number_format($total_sales, 2); ?></p>
-        </div>
-    </section>
+    <h2>Dashboard</h2>
+    <div class="dashboard-box">
+        <p class="user-box">
+            <img src="../assets/images/woman-raising.gif" alt="Waving User" class="wave-img">
+            Total Users: <?php echo $total_users; ?>
+        </p>
+        <p class="product-box">
+            <img src="../assets/images/empty-box.gif" alt="Product Icon" class="product-img">
+            Total Products: <?php echo $total_products; ?>
+        </p>
+    </div>
+</section>
+
 </body>
 </html>

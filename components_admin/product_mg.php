@@ -1,6 +1,15 @@
 <?php
 require_once __DIR__ . '/../db_connect.php';
 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+
+// Ensure admin is logged in
+if (!isset($_SESSION['admin_id'])) {
+    die("Access Denied!");
+}
 
 // Handle Add Product Form Submission
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
