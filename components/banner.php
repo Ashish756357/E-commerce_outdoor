@@ -10,9 +10,20 @@ while ($row = $result->fetch_assoc()) {
 }
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner Slideshow</title>
+    <link rel="stylesheet" href="assets/css/banner_user.css">
+</head>
+<body>
+
 <div class="banner-container">
     <?php if (!empty($images)): ?>
-        <img id="bannerImage" src="http://localhost/<?php echo $images[0]; ?>" alt="Banner Image" style="width:100%; height:auto;">
+        <img id="bannerImage" src="http://localhost/<?php echo $images[0]; ?>" alt="Banner Image">
+        <a id="shopNowBtn" href="#" class="shop-now-btn">Shop Now</a> <!-- Button inside banner -->
     <?php else: ?>
         <p>No banner available.</p>
     <?php endif; ?>
@@ -20,14 +31,7 @@ while ($row = $result->fetch_assoc()) {
 
 <script>
     let images = <?php echo json_encode($images); ?>;
-    let index+ = 0;
-
-    function changeBanner() {
-        if (images.length > 1) {
-            index = (index + 1) % images.length;
-            document.getElementById("bannerImage").src = "http://localhost/" + images[index];
-        }
-    }
-
-    setInterval(changeBanner, 5000); // Change every 5 seconds
 </script>
+<script src="assets/js/banner_user.js"></script> 
+</body>
+</html>
