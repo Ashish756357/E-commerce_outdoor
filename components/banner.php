@@ -1,22 +1,37 @@
 <?php
 require_once __DIR__ . '/../db_connect.php';
 
-// Fetch the latest banner
-$result = $conn->query("SELECT image_url FROM banners ORDER BY uploaded_at DESC LIMIT 1");
-$row = $result ? $result->fetch_assoc() : null;
+// Fetch all banner images
+$result = $conn->query("SELECT image_url FROM banners ORDER BY uploaded_at DESC");
 
-if ($row) {
-    // Ensure correct path formatting
-    $image_url = isset($row['image_url']) ? 'hello/' . ltrim(htmlspecialchars($row['image_url']), '/') : '';
-} else {
-    $image_url = '';
+$images = [];
+while ($row = $result->fetch_assoc()) {
+    $images[] = 'hello/' . ltrim(htmlspecialchars($row['image_url']), '/');
 }
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner Slideshow</title>
+    <link rel="stylesheet" href="assets/css/banner_user.css">
+</head>
+<body>
+
 <div class="banner-container">
-    <?php if (!empty($image_url)): ?>
-        <img src="http://localhost/<?php echo $image_url; ?>" alt="Banner Image" style="width:100%; height:auto;">
+    <?php if (!empty($images)): ?>
+        <img id="bannerImage" src="http://localhost/<?php echo $images[0]; ?>" alt="Banner Image">
+        <a id="shopNowBtn" href="#" class="shop-now-btn">Shop Now</a> <!-- Button inside banner -->
     <?php else: ?>
         <p>No banner available.</p>
     <?php endif; ?>
 </div>
+
+<script>
+    let images = <?php echo json_encode($images); ?>;
+</script>
+<script src="assets/js/banner_user.js"></script> 
+</body>
+</html>
