@@ -37,40 +37,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close();
-?>
-
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="\hello\assets\css\login.css">
-    <script src="assets/js/login.js"></script>
-    <title>Signup</title>
+    <link rel="stylesheet" href="assets/css/signup.css">
+    <script src="assets/js/signup.js"></script>
+    <title>Signup - GearQuest</title>
 </head>
 <body>
 
 <div class="container">
-    <div class="right-box">
-        <h1>GearQuest</h1>
-        <p>Create an account and start your adventure!</p>
+    <!-- Left Image Section -->
+    <div class="left-box">
+        <img src="assets/images/signup-image.jpg" alt="Signup Image">
+    </div>
 
-        <!-- SIGNUP FORM -->
-        <div class="signup-box"> 
-            <h2>Signup</h2>
-            <form method="POST">
-                <div class="input-group">
-                    <input type="text" name="new_username" placeholder="Username" required>
-                </div>
-                <div class="input-group">
-                    <input type="email" name="email" placeholder="Email ID" required>
-                </div>
-                <div class="input-group">
-                    <input type="password" name="new_password" placeholder="Password" required>
-                </div>
-                <button type="submit" class="signup-btn">Signup</button>
-            </form>
-            <p>Already have an account? <a href="login_form.php">Login here</a></p>
+    <!-- Right Signup Form -->
+    <div class="right-box">
+        <div class="content">
+            <h1 class="center-title">GearQuest</h1>
+            <p class="center-text">Create an account and start your adventure!</p>
+
+            <!-- Signup Form -->
+            <div class="signup-box"> 
+                <h2>Signup</h2>
+                <form method="POST">
+                    <div class="input-group">
+                        <input type="text" name="new_username" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="Email ID" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="new_password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="signup-btn">Signup</button>
+                </form>
+                <p>Already have an account? <a href="login_form.php">Login here</a></p>
+            </div>
         </div>
     </div>
 </div>
