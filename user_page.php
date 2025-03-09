@@ -11,7 +11,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My E-Commerce</title>
+    <title>GearQuest</title>
     <link rel="stylesheet" href="/hello/assets/css/style.css"> 
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/auto-switch.js"></script>
@@ -23,18 +23,17 @@ if (session_status() === PHP_SESSION_NONE) {
     <?php include 'components/sidebar.php'; ?>
     <!-- Navbar -->
     <?php include 'components/navbar.php'; ?>
-    <!-- Scrollable Categories -->
+    <!-- Scrollable Categories with Search Bar -->
     <div class="categories">
+        <a href="#">Home</a>
         <a href="#">Tent</a>
         <a href="#">Shoes</a>
         <a href="#">Clothes</a>
         <a href="#">Bag</a>
         <a href="#">Toys</a>
-        <a href="#">Home</a>
+        <input type="text" placeholder="Search for products..." class="categories-search"> 
     </div>
     <?php include 'components/banner.php'; ?>
     <?php include 'components/product_card.php'; ?>
-
- 
 </body>
 </html>

@@ -1,19 +1,41 @@
 /* Reset */
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&display=swap');
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
 }
 
 /* Body Styling */
 body {
     display: flex;
     flex-direction: column;
-    background-color: #efecec; /* Deep Black */
+    background: linear-gradient(145deg, #090a1a, #1b263b, #5a189a); /* Dark Navy → Midnight Blue → Deep Purple */
     color: #EAEAEA; /* Soft White */
     font-size: 1rem;
+    min-height: 100vh; /* Full screen coverage */
 }
+
+
+
+
 
 /* Sidebar Styling */
 .sidebar {
@@ -36,27 +58,29 @@ body {
 
 /* Menu Icon (Three Bars) */
 .menu-icon {
-    position: fixed;
-    top: 70px;
-    left: 24px;
-    width: 35px;
-    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 15px; /* Adjust left spacing to fit well */
+    transform: translateY(-50%);
+    width: 22px; /* Slightly smaller for alignment */
+    height: 18px; /* Proportionally reduced */
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    z-index: 1000; /* Ensure it's above the sidebar */
+    z-index: 1000;
 }
 
+/* Adjust bar thickness */
 .menu-icon div {
     width: 100%;
-    height: 5px;
+    height: 2.5px; /* Slightly thinner for a cleaner look */
     background-color: #FFCA3A; /* Gold */
-    border-radius: 5px;
+    border-radius: 2px;
     transition: 0.3s;
 }
 
-/* Menu Icon Animation */
+/* Animation for Opening Menu */
 .menu-icon.open div:nth-child(1) {
     transform: rotate(45deg);
     transform-origin: center;
@@ -69,21 +93,41 @@ body {
     transform-origin: center;
 }
 
+
 /* Navbar */
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background: #1E1E2E;
-    padding: 1rem;
+    background: linear-gradient(135deg, rgba(1, 4, 10, 0.85), rgba(11, 16, 28, 0.82), rgba(23, 38, 61, 0.80)); /* Dark blue gradient with subtle transparency */
+    padding: 1rem 2rem; /* More padding for better spacing */
     color: white;
     flex-wrap: wrap; /* Ensures navbar items wrap on smaller screens */
+    box-shadow: 0px 4px 20px rgba(0, 50, 100, 0.4); /* Soft neon glow */
+    backdrop-filter: blur(6px); /* Slight glassy effect */
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 8px; /* Smooth edges for a modern feel */
+    position: relative; /* Allows absolute positioning inside */
 }
 
+
+
+
+
+
+
+
 .navbar .logo {
-    font-size: 22px;
-    font-weight: bold;
+     /* font-family: "Playwrite IT Moderna", cursive; */
+     font-family: "Lobster", sans-serif;
+     /* font-family: "Courgette", cursive; */
+     /* font-family: "Emblema One", system-ui; */
+     font-size: 40px;
+     font-weight: bold;
+     color: #00f7ff;
+     text-shadow: 0 0 12px #00f7ff, 0 0 24px #007bff, 0 0 36px #0057ff;
+     letter-spacing: 2px; /* Adds spacing for a premium look */
 }
+
 
 .navbar input {
     padding: 8px;
@@ -96,11 +140,57 @@ body {
     color: white;
 }
 
+/* 🌟 General Icon Styling */
+/* 🌟 General Icon Styling */
 .navbar .icons a {
-    color: #FFCA3A; /* Gold */
+    font-family: "Josefin Slab", serif;
+    color: #8ecae6; /* Soft Cyan-Blue */
     text-decoration: none;
     margin-left: 15px;
+    font-size: 20px; /* Slightly larger for visibility */
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+    position: relative;
 }
+
+/* 🌟 Cart Button - Soft Cyan Glow */
+.navbar .icons a.cart {
+    text-shadow: 
+        0 0 6px rgba(0, 255, 191, 0.4), 
+        0 0 12px rgba(0, 255, 191, 0.2); /* Soft Glow */
+}
+
+.navbar .icons a.cart:hover {
+    color: #00ffc8; /* Bright Cyan */
+    text-shadow: 
+        0 0 20px rgba(0, 255, 191, 1), 
+        0 0 35px rgba(0, 255, 191, 0.9), 
+        0 0 50px rgba(0, 255, 191, 0.8), 
+        0 0 70px rgba(0, 255, 191, 0.7), 
+        0 0 90px rgba(0, 255, 191, 0.6); /* Maximum Glow */
+    transform: scale(1.12);
+}
+
+
+/* 🌟 Logout Button - Soft Purple-Blue Glow */
+.navbar .icons a.logout {
+    text-shadow: 
+        0 0 6px rgba(173, 0, 255, 0.4), 
+        0 0 12px rgba(173, 0, 255, 0.2); /* Soft Glow */
+}
+
+.navbar .icons a.logout:hover {
+    color: #ff1e1e; /* Bright Neon Red */
+    text-shadow: 
+        0 0 20px rgba(255, 30, 30, 1), 
+        0 0 35px rgba(255, 30, 30, 0.9), 
+        0 0 50px rgba(255, 30, 30, 0.8), 
+        0 0 70px rgba(255, 30, 30, 0.7), 
+        0 0 90px rgba(255, 30, 30, 0.6); /* Maximum Glow */
+    transform: scale(1.12);
+}
+
+
+
 
 
 .nav-links {
@@ -125,6 +215,13 @@ body {
     font-size: 1rem; /* Scales with screen size */
     white-space: nowrap; /* Prevents text from breaking */
 }
+
+.navbar .nav-links {
+    margin-left: 50px; /* Adjust so "Home" doesn't overlap with menu */
+    display: flex;
+    gap: 20px;
+}
+
 
 .container {
     max-width: 90vw; /* Ensures content stays within bounds */
@@ -173,26 +270,85 @@ body {
 
 /* Categories */
 .categories {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensures it stays above other elements */
     display: flex;
     justify-content: center;
-    gap: 15px;
-    background: #1E1E2E;
-    padding: 10px;
+    gap: 50px;
+    background: rgba(30, 30, 46, 0.5); /* Increased transparency */
+    padding: 5px 10px;
+    backdrop-filter: blur(20px); /* Stronger blur effect */
+    border-radius: 10px;
 }
 
+
 .categories a {
+    /* font-family: "Ubuntu", sans-serif; */
+    font-family: "Josefin Sans", sans-serif;
     text-decoration: none;
-    color: white;
-    background: #7F5AF0; /* Neon Purple */
-    padding: 8px 12px;
+    color: #b0e0ff; /* Soft Neon Blue - Matches the Adventure Theme */
+    font-size: 16px;
+    padding: 8px 15px; /* Uniform padding for all elements */
+    min-width: 100px; /* Ensures equal width for all menu items */
+    text-align: center;
     border-radius: 5px;
-    transition: 0.3s;
+    display: inline-block;
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 }
 
 .categories a:hover {
-    background: #FFCA3A; /* Gold */
-    color: #121212;
+    background: #00b4d8; /* Bright Cyan (Adventure & Exploration) */
+    color: #ffffff; /* Crisp White for readability */
+    padding: 8px 12px;
+    border-radius: 5px;
+    box-shadow: 0 0 12px #00b4d8; /* Glowing effect */
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-shadow: 0 0 12px #00eaff, 0 0 20px #00eaff; /* Glowing effect */
 }
+
+
+
+/* search bar styling */
+.categories-search {
+    padding: 5px 15px;
+    height: 30px;
+    width: 452.2px;
+    border-radius: 10px;
+    border: 2px solid #00b4d8; /* Glowing Cyan Border */
+    background: #1B1B2F; /* Dark Background */
+    color: white;
+    font-size: 1rem;
+    text-align: left;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    
+    /* Positioning */
+    margin-left: 20px; /* Space between the menu and search bar */
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.categories-search::placeholder {
+    color: #EAEAEA; /* Soft White */
+    opacity: 0.7;
+}
+
+.categories-search:focus {
+    background: #2E2E4F;
+    color: #00b4d8; /* Glowing Cyan Text */
+    border: 2px solid #00b4d8; /* Glowing Cyan Border */
+    box-shadow: 0 0 12px #00b4d8; /* Glow Effect */
+}
+
+.categories-search:hover {
+    background: #252547; /* Slightly lighter */
+    border-color: #00b4d8; /* Cyan Border */
+    box-shadow: 0 0 12px #00b4d8; /* Glowing Effect */
+}
+
+
+
 
 
 /* General Banner Styling */
@@ -215,34 +371,93 @@ footer {
 }
 
 
-/* 📱 Mobile & Tablet Adjustments */
-@media screen and (max-width:400px) {
-    .nav-links {
-        flex-direction: row;
-        justify-content: center;
+/* 🔹 General Mobile & Tablet Fixes */
+@media screen and (max-width: 1024px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
     }
-    .nav-links button {
-        font-size: 0.875rem; /* Adjust font size for small screens */
-        padding: 0.4rem 0.8rem;
-        min-width: auto; /* Ensures flexibility */
+
+    .navbar-center-text {
+        font-size: 20px;
+        padding: 5px 0;
     }
+
+    .icons {
+        margin-top: 10px;
+        display: flex;
+        gap: 15px;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+        gap: 15px;
+    }
+
+    .banner-container {
+        width: 100vw; /* Full width */
+        height: 480px; /* Adjusted height */
+        margin: 10px 0; /* Centered spacing */
+        border-radius: 0; /* Remove rounded edges */
+    }
+}
+
+/* 📱 iPhone X & Small Devices */
+@media screen and (max-width: 768px) {
     .navbar {
         flex-direction: column;
         text-align: center;
     }
-    
-    .sidebar {
-        width: 200px; /* Adjust sidebar width */
+
+    .navbar input {
+        width: 90%; /* Search bar takes full width */
     }
 
     .cards-container {
-        grid-template-columns: 1fr; /* Show one card per row on small screens */
+        grid-template-columns: 1fr; /* One card per row */
     }
 
-    .navbar input {
-        width: 100%; /* Full width for better usability */
+    .banner-container {
+        width: 100vw; /* Full width */
+        height: 420px; /* Slightly reduced for better fit */
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .banner-overlay {
+        background: rgba(0, 0, 0, 0.3); /* Darken slightly for readability */
     }
 }
+
+/* 📱 Ultra-Small Devices (Like iPhone SE, Foldables) */
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 5px 0;
+    }
+
+    .navbar-center-text {
+        font-size: 18px;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr; /* Full-width cards */
+        gap: 10px;
+    }
+
+    .icons {
+        gap: 10px;
+        font-size: 14px;
+    }
+
+    .banner-container {
+        height: 350px; /* Adjusted for smaller screens */
+    }
+}
+
+
+
 
 
 .profile-container {
@@ -254,7 +469,7 @@ footer {
 .profile-icon {
     width: 50px;
     height: 50px;
-    background-color: #9C27B0; /* Purple */
+    background: linear-gradient(135deg, #6A0DAD, #00E7FF); /* Deep Purple to Neon Cyan */
     color: white;
     font-size: 24px;
     font-weight: bold;
@@ -263,24 +478,21 @@ footer {
     justify-content: center;
     border-radius: 50%;
     text-transform: uppercase;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
-.profile-icon:hover::after {
-    content: attr(title);
-    position: absolute;
-    bottom: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    white-space: nowrap;
-    font-size: 14px;
-    opacity: 1;
-    transition: opacity 0.3s ease;
+/* Hover Effect: Adds Glow */
+.profile-icon:hover {
+    box-shadow: 0 0 10px #00E7FF, 0 0 20px #6A0DAD; /* Neon glow on hover */
+    transform: scale(1.1); /* Slightly enlarges on hover */
 }
+
+/* Remove tooltip text */
+.profile-icon:hover::after {
+    content: none;
+}
+
+
 
 
 
@@ -296,3 +508,38 @@ footer {
 .logout-btn:hover {
     background-color: darkred;
 }
+
+/* Center text styling */
+.navbar-center-text {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 22px;
+    font-family: "Cookie", cursive;
+    color: #00d4ff;
+    text-transform: capitalize;
+    letter-spacing: 1.5px;
+    text-shadow: 
+        0 0 3px #00d4ff, 
+        0 0 6px rgba(0, 180, 255, 0.5), 
+        0 0 10px rgba(0, 136, 255, 0.3);
+}
+
+/* Cursor Blinking Effect */
+.cursor {
+    font-size: 22px;
+    font-family: "Cookie", cursive;
+    color: #00d4ff;
+    animation: blink 0.8s infinite;
+    text-shadow: 
+        0 0 3px #00d4ff, 
+        0 0 5px rgba(0, 180, 255, 0.5), 
+        0 0 8px rgba(0, 136, 255, 0.3);
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+
