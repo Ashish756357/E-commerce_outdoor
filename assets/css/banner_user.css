@@ -1,96 +1,167 @@
-/* Banner Container - Glass Effect */
+/* 🌟 Banner Container */
 .banner-container {
     width: 97vw;
     max-width: 100vw;
     height: 526px;
     margin: 14px 109px 83px 16px;
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 9px;
-    position: relative;
-    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.3);
-    background: rgba(255, 255, 255, 0.1); /* Semi-transparent */
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    position: relative; /* Required for positioning elements inside */
+    box-shadow: 8px 8px 8px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Transparent Overlay Effect */
+/* 🌟 Banner Overlay (Creates Transparency) */
 .banner-overlay {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    background: rgba(255, 255, 255, 0.08); /* Subtle white overlay */
-    backdrop-filter: blur(10px) saturate(120%);
-    -webkit-backdrop-filter: blur(10px) saturate(120%);
-    border-radius: 12px;
-    z-index: 1;
+    background: rgba(255, 255, 255, 0.1); /* Light glass effect */
+    backdrop-filter: blur(5px); /* Soft blur */
+    z-index: 1; /* Keeps it behind text & button */
 }
 
-/* Ensure Image Stays Clear */
+/* 🌟 Banner Image */
 .banner-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: 20px;
+    z-index: 2; /* Ensures image stays above the overlay */
     position: relative;
-    z-index: 2; /* Image stays above the blur */
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Smooth Image Loading Effect */
-#bannerImage {
-    opacity: 0;
-    transform: scale(1.02);
-    transition: opacity 0.8s ease-in-out, transform 0.6s ease;
+/* 🌟 Text Overlay (Title & Slogan) */
+.banner-text {
+    position: absolute;
+    z-index: 3;
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
 }
 
-/* Ensure Image Becomes Fully Visible */
-.banner-container img.loaded {
-    opacity: 1;
-    transform: scale(1);
-}
-
-/* Shop Now Button */
+/* 🌟 Styled Shop Now Button */
 .shop-now-btn {
     position: absolute;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.25);
-    color: rgb(44, 44, 44);
+    background: rgba(255, 255, 255, 0.12); /* Transparent glass effect */
+    color: #8ecae6; /* Soft Cyan-Blue for the theme */
     padding: 14px 28px;
     font-size: 18px;
     font-weight: bold;
     text-decoration: none;
     border-radius: 25px;
-    transition: background 0.3s ease, transform 0.2s ease-in-out, color 0.3s ease;
+    border: 2px solid rgba(142, 202, 230, 0.7); /* Cyan border */
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
     z-index: 3;
     cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    transition: 
+        background 0.4s ease-in-out, 
+        transform 0.3s ease-in-out, 
+        color 0.3s ease-in-out, 
+        box-shadow 0.4s ease-in-out;
+    box-shadow: 
+        0 0 8px rgba(142, 202, 230, 0.6), 
+        0 0 15px rgba(142, 202, 230, 0.4); /* Soft neon glow */
 }
 
-/* Hover Effect */
+/* 🌟 Hover Effect - Enhanced Neon Glow */
 .shop-now-btn:hover {
-    background: rgba(255, 255, 255, 0.45);
-    color: rgb(10, 10, 10);
-    transform: translateX(-50%) scale(1.08);
+    background: rgba(142, 202, 230, 0.25); /* Slightly more visible */
+    color: #fff; /* Pure white for contrast */
+    transform: translateX(-50%) scale(1.1);
+    box-shadow: 
+        0 0 12px #8ecae6, 
+        0 0 18px #219ebc, 
+        0 0 24px #023047; /* Multi-layered glow */
+    border: 2px solid rgba(142, 202, 230, 1); /* Brightened border */
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .banner-container {
-        height: 350px;
-        margin: 10px;
+/* 🎬 Button Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.9);
     }
-    
+    to {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+/* 🌟 Responsive Banner Adjustments */
+
+/* 📱 Tablets & Small Screens */
+@media screen and (max-width: 1024px) {
+    .banner-container {
+        width: 100vw; /* Full width */
+        height: 480px; /* Adjusted height for balance */
+        margin: 10px 0; /* Centered spacing */
+        border-radius: 0; /* Remove rounded edges for full coverage */
+    }
+
+    .banner-text {
+        font-size: 36px; /* Adjust text size */
+    }
+
     .shop-now-btn {
         font-size: 16px;
+        padding: 12px 24px;
+    }
+}
+
+/* 📱 Mobile Devices (iPhone X, Samsung Galaxy, etc.) */
+@media screen and (max-width: 768px) {
+    .banner-container {
+        width: 100vw; /* Full width */
+        height: 420px; /* Slightly reduced for better fit */
+        margin: 0; /* Remove extra spacing */
+        padding: 0; /* No padding for clean full-width effect */
+        border-radius: 0; /* Full-width effect */
+    }
+
+    .banner-overlay {
+        background: rgba(0, 0, 0, 0.3); /* Darken slightly for readability */
+    }
+
+    .banner-text {
+        font-size: 28px; /* Reduce text size */
+        padding: 0 10px;
+    }
+
+    .shop-now-btn {
+        bottom: 20px;
+        font-size: 14px;
         padding: 10px 20px;
     }
 }
+
+/* 📱 Ultra-Small Devices (iPhone SE, Foldables) */
+@media screen and (max-width: 480px) {
+    .banner-container {
+        height: 350px; /* Adjusted for smaller screens */
+    }
+
+    .banner-text {
+        font-size: 24px; /* Ensure readability */
+    }
+
+    .shop-now-btn {
+        font-size: 12px;
+        padding: 8px 18px;
+    }
+}
+
