@@ -1,5 +1,5 @@
 <?php
-require_once _DIR_ . '/../db_connect.php';
+require_once __DIR__ . '/../db_connect.php';
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -15,7 +15,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Set upload directory
-$upload_dir = _DIR_ . '/../product_img/';
+$upload_dir = __DIR__ . '/../product_img/';
 if (!file_exists($upload_dir)) {
     mkdir($upload_dir, 0777, true);
 }
@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['remove_product'])) {
 
     // Delete the image file from the folder if it exists
     if (!empty($image_url)) {
-        $file_path = _DIR_ . '/../' . $image_url;
+        $file_path = __DIR__ . '/../' . $image_url;
         if (file_exists($file_path)) {
             unlink($file_path);
         }
