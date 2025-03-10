@@ -25,14 +25,48 @@ if (session_status() === PHP_SESSION_NONE) {
     <?php include 'components/navbar.php'; ?>
     <!-- Scrollable Categories with Search Bar -->
     <div class="categories">
-        <a href="#">Home</a>
-        <a href="#">Tent</a>
-        <a href="#">Shoes</a>
-        <a href="#">Clothes</a>
-        <a href="#">Bag</a>
-        <a href="#">Toys</a>
-        <input type="text" placeholder="Search for products..." class="categories-search"> 
-    </div>
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+
+
+    <ul class="menu">
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Sale! ▼</a>
+            <div class="dropdown-content">
+                <div class="dropdown-row">
+                    <div class="column">
+                        <h3>Camping Gear</h3>
+                        <a href="#">Backpacks</a>
+                        <a href="#">Tents & Shelters</a>
+                        <a href="#">Sleeping Pads</a>
+                    </div>
+                    <div class="column">
+                        <h3>Climbing Gear</h3>
+                        <a href="#">Climbing Shoes</a>
+                        <a href="#">Harnesses</a>
+                        <a href="#">Ropes</a>
+                    </div>
+                    <div class="column">
+                        <h3>Clothing</h3>
+                        <a href="#">Men's Clothing</a>
+                        <a href="#">Women's Clothing</a>
+                    </div>
+                    <div class="column">
+                        <h3>Footwear</h3>
+                        <a href="#">Men's Footwear</a>
+                        <a href="#">Women's Footwear</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <a href="#">Best Sellers</a>
+    <a href="#">My Order</a>
+    <a href="#">Info</a>
+    <input type="text" placeholder="Search for products..." class="categories-search">
+</div>
+
     <?php include 'components/banner.php'; ?>
     <?php include 'components/product_card.php'; ?>
 </body>

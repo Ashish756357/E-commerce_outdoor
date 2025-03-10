@@ -1,11 +1,27 @@
 <?php
-require_once __DIR__ . '/../db_connect.php'; // Database connection
+require_once __DIR__ . '/../db_connect.php';
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Ensure admin is logged in
+if (!isset($_SESSION['admin_id'])) {
+    die("Access Denied!");
+}
+
+$upload_dir = __DIR__ . '/../product_img/';
+if (!file_exists($upload_dir)) {
+    mkdir($upload_dir, 0777, true);
+}
 
 function displayProductCard($product) {
-    echo '<div class="product-card">';
-    echo '<img src="http://localhost/hello/uploads/' . htmlspecialchars($product['image']) . '" alt="' . htmlspecialchars($product['name']) . '" style="max-width:100%; height:auto;">';
-    echo '<!-- Debug: Image URL: http://localhost/hello/uploads/' . htmlspecialchars($product['image']) . ' -->';
+    // Corrected image path
+    $image_url = 'http://localhost/hello/product_img/' . htmlspecialchars($product['image']);
 
+    echo '<div class="product-card">';
+    echo '<img src="' . $image_url . '" alt="' . htmlspecialchars($product['name']) . '" style="max-width:100%; height:auto;">';
+    echo '<!-- Debug: Image URL: ' . $image_url . ' -->';
 
     echo '<h3>' . htmlspecialchars($product['name']) . '</h3>';
     echo '<p>Price: ₹' . number_format($product['price'], 2) . '</p>';
@@ -17,6 +33,7 @@ function displayProductCard($product) {
     echo '</form>';
     echo '</div>';
 }
+
 
 $query = "SELECT * FROM products";
 $result = $conn->query($query);
