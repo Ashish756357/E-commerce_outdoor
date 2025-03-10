@@ -17,7 +17,8 @@ if (!file_exists($upload_dir)) {
 
 function displayProductCard($product) {
     // Corrected image path
-    $image_url = 'http://localhost/hello/product_img/' . htmlspecialchars($product['image']);
+    $image_url = 'http://localhost/hello/' . htmlspecialchars($product['image']);
+
 
     echo '<div class="product-card">';
     echo '<img src="' . $image_url . '" alt="' . htmlspecialchars($product['name']) . '" style="max-width:100%; height:auto;">';
