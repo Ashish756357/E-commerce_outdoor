@@ -24,4 +24,13 @@ document.addEventListener("DOMContentLoaded", function () {
             bars[2].style.transform = "none";
         }
     });
+
+    // Ensure the sidebar appears in the correct position
+    function adjustSidebarPosition() {
+        let navbarHeight = document.querySelector(".navbar").offsetHeight;
+        sidebar.style.top = navbarHeight + "px"; // Position below navbar
+    }
+
+    window.addEventListener("resize", adjustSidebarPosition);
+    adjustSidebarPosition(); // Adjust on load
 });

@@ -54,14 +54,14 @@
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.12); /* Transparent glass effect */
-    color: #8ecae6; /* Soft Cyan-Blue for the theme */
+    background: transparent;
+    color: #8ecae6; /* Soft Cyan-Blue */
     padding: 14px 28px;
     font-size: 18px;
     font-weight: bold;
     text-decoration: none;
     border-radius: 25px;
-    border: 2px solid rgba(142, 202, 230, 0.7); /* Cyan border */
+    border: 2px solid #8ecae6; /* Neon border */
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     z-index: 3;
@@ -69,29 +69,29 @@
     display: inline-block;
     text-align: center;
     transition: 
-        background 0.4s ease-in-out, 
-        transform 0.3s ease-in-out, 
-        color 0.3s ease-in-out, 
-        box-shadow 0.4s ease-in-out;
-    box-shadow: 
-        0 0 8px rgba(142, 202, 230, 0.6), 
-        0 0 15px rgba(142, 202, 230, 0.4); /* Soft neon glow */
+        color 0.4s ease, 
+        background 0.4s ease, 
+        border 0.4s ease, 
+        box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 🌟 Hover Effect - Enhanced Neon Glow */
+/* 🌟 Smoother Hover Effect - Neon Glow with Soft Transition */
 .shop-now-btn:hover {
-    background: rgba(142, 202, 230, 0.25); /* Slightly more visible */
-    color: #fff; /* Pure white for contrast */
-    transform: translateX(-50%) scale(1.1);
+    background: rgba(142, 202, 230, 0.2); /* Soft neon fill */
+    color: #fff; /* Bright white for contrast */
+    transform: translateX(-50%) scale(1.08); /* Smooth scale */
+    border: 2px solid #fff; /* Bright neon border */
     box-shadow: 
-        0 0 12px #8ecae6, 
-        0 0 18px #219ebc, 
-        0 0 24px #023047; /* Multi-layered glow */
-    border: 2px solid rgba(142, 202, 230, 1); /* Brightened border */
+        0 0 14px #8ecae6, 
+        0 0 26px #219ebc, 
+        0 0 34px #023047; /* Smooth, layered neon pulse */
 }
+
+
 
 /* 🎬 Button Fade-In Animation */
-@keyframes fadeIn {
+/* @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateX(-50%) scale(0.9);
@@ -100,7 +100,7 @@
         opacity: 1;
         transform: translateX(-50%) scale(1);
     }
-}
+} */
 
 /* 🌟 Responsive Banner Adjustments */
 

@@ -25,6 +25,12 @@ if (session_status() === PHP_SESSION_NONE) {
     <?php include 'components/navbar.php'; ?>
     <!-- Scrollable Categories with Search Bar -->
     <div class="categories">
+    <div class="menu-icon">
+           <div></div>
+           <div></div>
+           <div></div>
+        </div>
+
     <a href="#">Home</a>
     <a href="#">Products</a>
 
