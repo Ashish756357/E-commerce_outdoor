@@ -106,6 +106,7 @@ $products = $conn->query("SELECT * FROM products");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Manage Products</title>
     <link rel="stylesheet" href="\hello\assets\css\product_mgmt.css">
+
 </head>
 <body>
 

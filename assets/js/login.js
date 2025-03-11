@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Image slides from left
-    const leftImage = document.querySelector(".left-box");
+    // const leftImage = document.querySelector(".left-box");
     if (leftImage) {
         leftImage.style.transform = "translateX(-50px)";
     }
@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Ensure image slides in at the same time
             if (leftImage) {
+                leftImage.style.transition = "transform 1.2s ease-out";
                 leftImage.style.transform = "translateX(0)";
             }
 
