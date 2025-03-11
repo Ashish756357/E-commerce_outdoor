@@ -26,7 +26,10 @@ $conn->close();
 <html lang="en">
 <head>
     <title>Admin Dashboard</title>
-<link rel="stylesheet" href="../assets/css/admin.css">
+<link rel="stylesheet" href="../assets/css/admin.
+css">
+<script src="../assets/js/theme_admin.js" defer></script>
+
 
 
 
@@ -39,7 +42,10 @@ $conn->close();
         <a href="\hello\components_admin\product_mg.php">Product Management</a>
 
         <a href="\hello\components_admin\banner_mg.php">Manage Banners</a>
-        <a href="/hello/login_form.php">Logout</a>     
+        <a href="/hello/login_form.php">Logout</a>   
+
+        <!-- <button id="dark-mode-toggle">🌙</button> -->
+
     </nav>
 
     <section>

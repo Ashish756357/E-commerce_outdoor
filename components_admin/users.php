@@ -75,6 +75,8 @@ $result = $conn->query("SELECT * FROM users");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Management</title>
     <link rel="stylesheet" href="../assets/css/user_mgmt.css">
+    <script src="/hello/assets/js/theme-toggle.js" defer></script>
+
 </head>
 <body>
 

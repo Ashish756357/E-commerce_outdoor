@@ -12,9 +12,11 @@ if (session_status() === PHP_SESSION_NONE) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GearQuest</title>
-    <link rel="stylesheet" href="/hello/assets/css/style.css"> 
+    <link rel="stylesheet" href="/hello/assets/css/style.css">
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/auto-switch.js"></script>
+
+    
     <!-- Include JavaScript File -->
 </head>
 
@@ -44,7 +46,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         <h3>Camping Gear</h3>
                         <a href="#">Backpacks</a>
                         <a href="#">Tents & Shelters</a>
-                        <a href="#">Sleeping Pads</a>
+                        <a href="#">Sleeping bags</a>
                     </div>
                     <div class="column">
                         <h3>Climbing Gear</h3>
@@ -66,7 +68,6 @@ if (session_status() === PHP_SESSION_NONE) {
             </div>
         </li>
     </ul>
-
     <a href="#">Best Sellers</a>
     <a href="#">My Order</a>
     <a href="#">Info</a>

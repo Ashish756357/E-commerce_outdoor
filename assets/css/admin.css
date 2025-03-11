@@ -129,6 +129,32 @@ section h2 {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.dark-mode nav {
+    background-color: #121212;
+}
+
+.dark-mode section {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+.dark-mode a {
+    color: #bb86fc;
+}
+
+.dark-mode .dashboard-box p {
+    background-color: #333;
+    color: #ffffff;
+    border-color: #444;
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     nav {

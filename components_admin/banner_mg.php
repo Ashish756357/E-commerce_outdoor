@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["banner_image"])) {
             echo '<input type="hidden" name="delete_banner" value="' . $row['id'] . '">';
             echo '<button type="submit" class="delete-btn" onclick="return confirm(\'Are you sure you want to delete this banner?\');">❌</button>';
             echo '</form>';
-            echo '</div>';
+            echo '</div>';  
         }
     } else {
         echo "<p>No banners uploaded yet.</p>";

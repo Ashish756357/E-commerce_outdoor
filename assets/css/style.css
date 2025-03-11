@@ -33,7 +33,11 @@ body {
     min-height: 100vh; /* Full screen coverage */
 }
 
-
+:root {
+    --bg-color: white;
+    --text-color: black;
+    --nav-bg: #f8f9fa;
+}
 
 
 
@@ -428,7 +432,8 @@ body {
 .categories-search {
     padding: 5px 15px;
     height: 30px;
-    width: 452.2px;
+    width: 100%;
+    max-width: 450px;
     border-radius: 10px;
     border: 2px solid #00b4d8; /* Glowing Cyan Border */
     background: #1B1B2F; /* Dark Background */
@@ -543,6 +548,9 @@ footer {
 
     .banner-overlay {
         background: rgba(0, 0, 0, 0.3); /* Darken slightly for readability */
+    } 
+    .categories-search {
+        width: 90%;
     }
 }
 
