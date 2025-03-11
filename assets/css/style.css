@@ -33,11 +33,7 @@ body {
     min-height: 100vh; /* Full screen coverage */
 }
 
-:root {
-    --bg-color: white;
-    --text-color: black;
-    --nav-bg: #f8f9fa;
-}
+
 
 
 

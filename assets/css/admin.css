@@ -95,7 +95,6 @@ section h2 {
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* Show Image on Hover */
 /* Show Images on Hover */
 .user-box:hover .wave-img,
 .product-box:hover .product-img {
@@ -144,14 +143,32 @@ section h2 {
     color: #ffffff;
 }
 
-.dark-mode a {
-    color: #bb86fc;
+nav a, nav h2, #dark-mode-toggle {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
 }
 
 .dark-mode .dashboard-box p {
     background-color: #333;
     color: #ffffff;
     border-color: #444;
+}
+
+#dark-mode-toggle {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Dark mode button */
+.dark-mode #dark-mode-toggle {
+    background-color: #121212;
+    color: #fff !important;
+    border: none;
 }
 
 

@@ -42,9 +42,10 @@ css">
         <a href="\hello\components_admin\product_mg.php">Product Management</a>
 
         <a href="\hello\components_admin\banner_mg.php">Manage Banners</a>
+
         <a href="/hello/login_form.php">Logout</a>   
 
-        <!-- <button id="dark-mode-toggle">🌙</button> -->
+        <button id="dark-mode-toggle">🌙</button>
 
     </nav>
 
