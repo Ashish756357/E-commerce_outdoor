@@ -12,11 +12,19 @@ if (session_status() === PHP_SESSION_NONE) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GearQuest</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="/hello/assets/css/style.css">
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/auto-switch.js"></script>
 
     
+=======
+    <link rel="stylesheet" href="/hello/assets/css/style.css"> 
+    <link rel="stylesheet" href="/hello/assets/css/product_card.css">
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/auto-switch.js"></script>
+
+>>>>>>> 3275821c41eea0154615c120cd5a64603cbd3471
     <!-- Include JavaScript File -->
 </head>
 
