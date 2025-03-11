@@ -13,8 +13,10 @@ if (session_status() === PHP_SESSION_NONE) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GearQuest</title>
     <link rel="stylesheet" href="/hello/assets/css/style.css"> 
+    <link rel="stylesheet" href="/hello/assets/css/product_card.css">
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/auto-switch.js"></script>
+
     <!-- Include JavaScript File -->
 </head>
 
