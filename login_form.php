@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="assets\css\login.css">
-    <script src="assets/js/login.js"></script>
+    <!-- <script src="assets/js/login.js"></script> -->
 </head>
 <body>
 
