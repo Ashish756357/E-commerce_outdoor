@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['remove_product'])) {
     $stmt->bind_param("i", $product_id);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Product removed successfully!');</script>";
+        echo "<script>alert('Product removed successfully!');window.location.href='product_mg.php'</script>";
     } else {
         echo "<script>alert('Error removing product');</script>";
     }

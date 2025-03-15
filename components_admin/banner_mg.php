@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_banner'])) {
         $stmt = $conn->prepare("DELETE FROM banners WHERE id = ?");
         $stmt->bind_param("i", $banner_id);
         if ($stmt->execute()) {
-            echo "<script>alert('Banner deleted successfully!'); window.location.href='banner.php';</script>";
+            echo "<script>alert('Banner deleted successfully!'); window.location.href='banner_mg.php';</script>";
         } else {
             echo "<script>alert('Error deleting banner!');</script>";
         }
@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["banner_image"])) {
         $stmt = $conn->prepare("INSERT INTO banners (image_url) VALUES (?)");
         $stmt->bind_param("s", $image_url);
         if ($stmt->execute()) {
-            echo "<script>alert('Banner uploaded successfully!'); window.location.href='banner.php';</script>";
+            echo "<script>alert('Banner uploaded successfully!'); window.location.href='banner_mg.php';</script>";
         } else {
             echo "<script>alert('Database error!');</script>";
         }

@@ -1,61 +1,135 @@
+/* Google Font for a modern look */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 20px;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    background: #eef1f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-h2, h3 {
-    text-align: center;
+/* Container: Positions Form on Left & Table on Right */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 30px;
+    gap: 30px; /* Adds spacing between form and table */
 }
 
-form {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
+/* Left Side: Form Styling */
+.form-container {
+    flex: 1;
     max-width: 400px;
-    margin: 0 auto;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
 }
 
+.form-container:hover {
+    transform: translateY(-3px);
+}
+
+/* Labels */
 label {
     display: block;
-    margin-top: 10px;
-    font-weight: bold;
+    margin-top: 12px;
+    font-weight: 600;
+    color: #444;
 }
 
+/* Inputs & Textarea */
 input, textarea {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     margin-top: 5px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+/* Input Focus Effect */
+input:focus, textarea:focus {
+    border-color: #6A5ACD;
+    box-shadow: 0 0 8px rgba(106, 90, 205, 0.3);
+    outline: none;
+}
+
+/* Buttons */
 button {
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #6A5ACD;
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: linear-gradient(135deg, #6A5ACD, #4b39b7);
     color: white;
+    font-size: 16px;
+    font-weight: 600;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
 button:hover {
-    background-color: #5a4eb7;
+    background: linear-gradient(135deg, #5a4eb7, #3a2e99);
+    transform: scale(1.05);
 }
 
+/* Right Side: Table Container */
+.table-container {
+    flex: 2;
+    width: 100%;
+}
+
+/* Table Styling */
 table {
-    width: 80%;
-    margin: 20px auto;
+    width: 100%;
     border-collapse: collapse;
     background: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
     text-align: center;
+    font-size: 14px;
+}
+
+th {
+    background: #6A5ACD;
+    color: white;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+tr:hover {
+    background: rgba(106, 90, 205, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .table-container {
+        margin-left: 0;
+        margin-top: 20px;
+        width: 100%;
+    }
 }
