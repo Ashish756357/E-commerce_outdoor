@@ -7,7 +7,8 @@ if (session_status() == PHP_SESSION_NONE) {
 
 // Ensure admin is logged in
 if (!isset($_SESSION['admin_id'])) {
-    die("Access Denied!");
+    echo '<script> window.location.href="/hello/components_admin/error/error.php";</script>';
+    exit;
 }
 
 // Enable error reporting for debugging
@@ -136,6 +137,7 @@ $products = $conn->query("SELECT * FROM products");
     <hr>
 
     <!-- Remove Product Section -->
+    <div class="table-container">
     <h3>Existing Products</h3>
     <table border="1">
         <tr>

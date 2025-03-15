@@ -10,7 +10,8 @@ if (session_status() == PHP_SESSION_NONE) {
 
 // Ensure admin is logged in
 if (!isset($_SESSION['admin_id'])) {
-  die("Access Denied!");
+  echo '<script> window.location.href="/hello/components_admin/error/error.php";</script>';
+  exit;
 }
 
 // Handle New User Addition
