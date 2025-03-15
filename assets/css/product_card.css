@@ -110,3 +110,19 @@
         font-size: 14px;
     }
 }
+nav {
+    background-color: #1d3557;
+    color: #f1faee;
+    padding: 15px 20px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex
+;
+    justify-content: space-between;
+    align-items: center;
+    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

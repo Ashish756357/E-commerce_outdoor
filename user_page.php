@@ -14,6 +14,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <title>GearQuest</title>
     <link rel="stylesheet" href="/hello/assets/css/style.css"> 
     <link rel="stylesheet" href="/hello/assets/css/product_card.css">
+    <link rel="stylesheet" href="/hello/assets/css/footer.css">
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/auto-switch.js"></script>
 
@@ -69,12 +70,13 @@ if (session_status() === PHP_SESSION_NONE) {
         </li>
     </ul>
     <a href="#">Best Sellers</a>
-    <a href="#">My Order</a>
-    <a href="#">Info</a>
+    <a href="cart_user/cart.php">My Order</a>
+    <a href="cart_user/info.php">Info</a>
     <input type="text" placeholder="Search for products..." class="categories-search">
 </div>
 
     <?php include 'components/banner.php'; ?>
     <?php include 'components/product_card.php'; ?>
+    <?php include 'components/footer.php'; ?>
 </body>
 </html>
