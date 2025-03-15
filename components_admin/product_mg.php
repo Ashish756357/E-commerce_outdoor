@@ -106,8 +106,7 @@ $products = $conn->query("SELECT * FROM products");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Manage Products</title>
-    <link rel="stylesheet" href="\hello\assets\css\product_mgmt.css">
-
+    <link rel="stylesheet" href="/hello/assets/css/product_mgmt.css">
 </head>
 <body>
 
@@ -136,40 +135,46 @@ $products = $conn->query("SELECT * FROM products");
 
     <hr>
 
-    <!-- Remove Product Section -->
+    <!-- Remove & Edit Product Section -->
     <div class="table-container">
-    <h3>Existing Products</h3>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Price (₹)</th>
-            <th>Stock</th>
-            <th>Image</th>
-            <th>Action</th>
-        </tr>
-        <?php while ($product = $products->fetch_assoc()) { ?>
-        <tr>
-            <td><?php echo $product['id']; ?></td>
-            <td><?php echo $product['name']; ?></td>
-            <td>₹<?php echo number_format($product['price'], 2); ?></td>
-            <td><?php echo $product['stock']; ?></td>
-            <td>
-                <?php if (!empty($product['image'])): ?>
-                    <img src="<?php echo '../' . $product['image']; ?>" alt="Product Image" width="50">
-                <?php else: ?>
-                    No Image
-                <?php endif; ?>
-            </td>
-            <td>
-                <form method="POST" action="">
-                    <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
-                    <button type="submit" name="remove_product">Remove</button>
-                </form>
-            </td>
-        </tr>
-        <?php } ?>
-    </table>
+        <h3>Existing Products</h3>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price (₹)</th>
+                <th>Stock</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+            <?php while ($product = $products->fetch_assoc()) { ?>
+            <tr>
+                <td><?php echo $product['id']; ?></td>
+                <td><?php echo htmlspecialchars($product['name']); ?></td>
+                <td>₹<?php echo number_format($product['price'], 2); ?></td>
+                <td><?php echo $product['stock']; ?></td>
+                <td>
+                    <?php if (!empty($product['image'])): ?>
+                        <img src="<?php echo '../' . $product['image']; ?>" alt="Product Image" width="50">
+                    <?php else: ?>
+                        No Image
+                    <?php endif; ?>
+                </td>
+                <td>
+                    <!-- Edit Button -->
+                    <a href="edit_product.php?product_id=<?php echo $product['id']; ?>">
+                        <button type="button">Edit</button>
+                    </a>
+                    <!-- Remove Button -->
+                    <form method="POST" action="" style="display:inline-block;">
+                        <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                        <button type="submit" name="remove_product">Remove</button>
+                    </form>
+                </td>
+            </tr>
+            <?php } ?>
+        </table>
+    </div>
 
 </body>
 </html>

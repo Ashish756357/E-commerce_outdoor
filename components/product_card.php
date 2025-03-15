@@ -5,9 +5,6 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-// Ensure admin is logged in
-
-
 $upload_dir = __DIR__ . '/../product_img/';
 if (!file_exists($upload_dir)) {
     mkdir($upload_dir, 0777, true);
@@ -15,7 +12,6 @@ if (!file_exists($upload_dir)) {
 
 // Function to display product cards
 function displayProductCard($product) {
-    // Corrected image path
     $image_url = 'http://localhost/hello/' . htmlspecialchars($product['image']);
 
     echo '<div class="product-card">';
@@ -26,7 +22,7 @@ function displayProductCard($product) {
     
     echo '<p class="description">' . nl2br(htmlspecialchars($product['description'])) . '</p>';
     
-    echo '<form method="POST" action="add_to_cart.php">';
+    echo '<form method="POST" action="cart_user/add_to_cart.php">';
     echo '<input type="hidden" name="product_id" value="' . $product['id'] . '">';
     echo '<button type="submit" class="add-to-cart">🛒 Add to Cart</button>';
     echo '</form>';
@@ -36,18 +32,17 @@ function displayProductCard($product) {
 $query = "SELECT * FROM products";
 $result = $conn->query($query);
 
-// Display the products inside a container
 echo '<div class="product-container">';
 
 if ($result->num_rows > 0) {
     while ($product = $result->fetch_assoc()) {
-        displayProductCard($product); // Call the function to display the card
+        displayProductCard($product);
     }
 } else {
     echo "<p>No products available.</p>";
 }
 
-echo '</div>'; // Close the product container
+echo '</div>';
 
 $conn->close();
 ?>
