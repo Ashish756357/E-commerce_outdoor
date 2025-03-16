@@ -1,7 +1,7 @@
 /* Product Container to Position Cards */
 .product-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+    grid-template-columns: repeat(3, 1fr); /* Two cards per row */
     gap: 20px;
     max-width: 800px; /* Adjust width */
     margin: 0 auto; /* Center the container */
@@ -18,6 +18,12 @@
     text-align: center;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     color: #333;
+    
+    /* Flexbox settings for uniform card height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 /* Hover Effect */
@@ -26,13 +32,14 @@
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Product Image */
 .product-card img {
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Adjust ratio (e.g., 16/9, 4/3, 1/1) */
+    object-fit: cover;   /* Ensures it fills the area but can still be cropped slightly */
     border-radius: 8px;
     transition: transform 0.3s ease-in-out;
-}
+    /* Remove the fixed height: height: 180px; */
+  }
 
 /* Image Hover Effect */
 .product-card img:hover {
@@ -66,6 +73,7 @@
     color: #666;
     margin: 10px 0;
     text-align: justify;
+    min-height: 60px; /* Ensures uniform height for all cards */
 }
 
 /* Add to Cart Button */
@@ -109,20 +117,7 @@
     .add-to-cart {
         font-size: 14px;
     }
-}
-nav {
-    background-color: #1d3557;
-    color: #f1faee;
-    padding: 15px 20px;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex
-;
-    justify-content: space-between;
-    align-items: center;
-    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    .product-card img {
+        object-fit: contain; 
+      }
 }
