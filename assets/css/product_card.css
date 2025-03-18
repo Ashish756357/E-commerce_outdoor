@@ -1,12 +1,18 @@
 /* Product Container to Position Cards */
 .product-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Two cards per row */
-    gap: 20px;
-    max-width: 800px; /* Adjust width */
-    margin: 0 auto; /* Center the container */
-    padding: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 69px;
+    max-width: 950px;
+    margin: 0 auto;  /* This pushes the container to the right */
+    padding: 7px;
+    /* Remove or adjust justify-content if needed */
+    justify-content: end; /* Ensures the grid tracks align to the right */
+    align-items: start;
+    align-content: space-between;
+    justify-items: end; /* Aligns items inside each cell to the right */
 }
+
 
 /* Individual Product Card */
 .product-card {
@@ -78,7 +84,7 @@
 
 /* Add to Cart Button */
 .add-to-cart {
-    background: linear-gradient(to right, #6A5ACD, #836FFF);
+    background: black;
     color: white;
     padding: 12px;
     border: none;
@@ -90,9 +96,9 @@
     width: 100%;
 }
 
-.add-to-cart:hover {
+/* .add-to-cart:hover {
     background: linear-gradient(to right, #5a4eb7, #7265d7);
-}
+} */
 
 /* Responsive Design */
 @media (max-width: 768px) {
