@@ -15,6 +15,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="stylesheet" href="/hello/assets/css/style.css"> 
     <link rel="stylesheet" href="/hello/assets/css/product_card.css">
     <link rel="stylesheet" href="/hello/assets/css/footer.css">
+    <link rel="stylesheet" href="/hello/assets/css/brand.css">
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/auto-switch.js"></script>
 
@@ -76,6 +77,7 @@ if (session_status() === PHP_SESSION_NONE) {
 </div>
 
     <?php include 'components/banner.php'; ?>
+    <?php include 'components/brand.php'; ?>
     <?php include 'components/product_card.php'; ?>
     <?php include 'components/footer.php'; ?>
 </body>
