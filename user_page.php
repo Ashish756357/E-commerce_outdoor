@@ -46,7 +46,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <div class="dropdown-row">
                     <div class="column">
                         <h3>Camping Gear</h3>
-                        <a href="#">Backpacks</a>
+                        <a href="/hello/product/Backpack/backpack.php">Backpacks</a>
                         <a href="#">Tents & Shelters</a>
                         <a href="#">Sleeping bags</a>
                     </div>
@@ -79,6 +79,8 @@ if (session_status() === PHP_SESSION_NONE) {
     <?php include 'components/banner.php'; ?>
     <?php include 'components/brand.php'; ?>
     <?php include 'components/product_card.php'; ?>
+
     <?php include 'components/footer.php'; ?>
 </body>
 </html>
+
