@@ -26,13 +26,13 @@ while ($row = $result->fetch_assoc()) {
 }
 
 /**
- * RIGHT COLUMN: Fetch from the "climbing_ropes" table
+ * RIGHT COLUMN: Fetch from the "climbing_gear" table
  * (assuming `id`, `title`, `price`, `image_url` exist)
  */
-$ropeStmt = $conn->query("SELECT id, title, price, image_url FROM climbing_ropes limit 4");
-$climbingRopes = [];
-while ($row = $ropeStmt->fetch_assoc()) {
-    $climbingRopes[] = $row;
+$gearStmt = $conn->query("SELECT id, title, price, image_url FROM climbing_gear");
+$climbingGear = [];
+while ($row = $gearStmt->fetch_assoc()) {
+    $climbingGear[] = $row;
 }
 ?>
 
@@ -197,7 +197,7 @@ while ($row = $ropeStmt->fetch_assoc()) {
       padding: 20px;
       gap: 20px;
     }
-    .product-container, .rope-container {
+    .product-container, .gear-container {
       width: 45%;
       display: grid;
       grid-template-columns: 1fr;
@@ -261,7 +261,7 @@ while ($row = $ropeStmt->fetch_assoc()) {
         flex-direction: column;
         align-items: center;
       }
-      .product-container, .rope-container {
+      .product-container, .gear-container {
         width: 90%;
       }
     }
@@ -343,7 +343,7 @@ while ($row = $ropeStmt->fetch_assoc()) {
 
 <!-- MAIN CONTENT (PRODUCT CARDS) -->
 <div class="container">
-  <!-- LEFT COLUMN: Rope products from "products" table -->
+  <!-- LEFT COLUMN: Rope products from the "products" table -->
   <div class="product-container">
     <?php foreach ($products as $product): ?>
       <?php 
@@ -363,16 +363,16 @@ while ($row = $ropeStmt->fetch_assoc()) {
     <?php endforeach; ?>
   </div>
 
-  <!-- RIGHT COLUMN: Items from "climbing_ropes" table -->
-  <div class="rope-container">
-    <?php foreach ($climbingRopes as $rope): ?>
+  <!-- RIGHT COLUMN: Items from "climbing_gear" table -->
+  <div class="gear-container">
+    <?php foreach ($climbingGear as $gear): ?>
       <div class="card">
-        <img src="<?= htmlspecialchars($rope['image_url']) ?>" alt="Climbing Rope">
-        <h3><?= htmlspecialchars($rope['title']) ?></h3>
-        <p>Price: ₹<?= htmlspecialchars($rope['price']) ?></p>
+        <img src="<?= htmlspecialchars($gear['image_url']) ?>" alt="Climbing Gear">
+        <h3><?= htmlspecialchars($gear['title']) ?></h3>
+        <p>Price: ₹<?= htmlspecialchars($gear['price']) ?></p>
         <!-- "Add to Cart" form -->
         <form action="/hello/add_to_cart.php" method="POST" style="margin-top: 20px;">
-          <input type="hidden" name="product_id" value="<?= $rope['id'] ?>">
+          <input type="hidden" name="product_id" value="<?= $gear['id'] ?>">
           <button type="submit" class="add-to-cart">Add to Cart</button>
         </form>
       </div>
@@ -382,4 +382,3 @@ while ($row = $ropeStmt->fetch_assoc()) {
 
 </body>
 </html>
-

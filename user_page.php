@@ -47,14 +47,14 @@ if (session_status() === PHP_SESSION_NONE) {
                     <div class="column">
                         <h3>Camping Gear</h3>
                         <a href="/hello/product/Backpack/backpack.php">Backpacks</a>
-                        <a href="#">Tents & Shelters</a>
+                        <a href="/hello/product/Tent/tent.php">Tents & Shelters</a>
                         <a href="#">Sleeping bags</a>
                     </div>
                     <div class="column">
                         <h3>Climbing Gear</h3>
-                        <a href="#">Climbing Shoes</a>
+                        <a href="/hello/product/climbing_gear/climbing_gear.php">climbing_gear</a>
                         <a href="#">Harnesses</a>
-                        <a href="#">Ropes</a>
+                        <a href="/hello/product/climbing_ropes/climbing_rope.php">Ropes</a>
                     </div>
                     <div class="column">
                         <h3>Clothing</h3>
