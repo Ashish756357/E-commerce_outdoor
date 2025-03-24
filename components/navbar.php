@@ -1,4 +1,3 @@
-
 <div class="navbar">
     <div class="logo">GearQuest</div>
     <!-- <input type="text" placeholder="Search for products..."> -->
@@ -9,11 +8,10 @@
      </div>
 
     <div class="icons">
-        <?php include 'components/profile.php'; ?> <!-- Profile before Cart -->
-        <a href="cart_user/cart.php" class="cart">🛒 Cart</a>
+        <?php include '/hello/components/profile.php'; ?> <!-- Profile before Cart -->
+        
+        <a href="/hello/cart_user/cart.php" class="cart">🛒 Cart</a>
         <a href="logout.php" class="logout">🚪 Logout</a>
     </div>
 </div>
 <script src="assets/js/navbar.js"></script>
-
-
