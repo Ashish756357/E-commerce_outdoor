@@ -29,7 +29,8 @@ function displayProductCard($product) {
     echo '</div>';
 }
 
-$query = "SELECT * FROM products";
+// Limit to 4 products
+$query = "SELECT * FROM products LIMIT 4";
 $result = $conn->query($query);
 
 echo '<div class="product-container">';

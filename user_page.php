@@ -46,9 +46,9 @@ if (session_status() === PHP_SESSION_NONE) {
                 <div class="dropdown-row">
                     <div class="column">
                         <h3>Camping Gear</h3>
-                        <a href="/hello/product/Backpack/backpack.php">Backpacks</a>
+                        <a href="/hello/product/Backpack/backpack.php">Sleeping bags</a>
                         <a href="/hello/product/Tent/tent.php">Tents & Shelters</a>
-                        <a href="#">Sleeping bags</a>
+                        <a href="#">bags</a>
                     </div>
                     <div class="column">
                         <h3>Climbing Gear</h3>

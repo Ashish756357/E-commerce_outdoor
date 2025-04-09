@@ -1,6 +1,6 @@
 <?php
 // Include your database connection file which defines $conn
-require_once '/hello/db_connect.php';
+require_once __DIR__ . '/../../db_connect.php';
 
 // Start the session if not already started
 if (session_status() === PHP_SESSION_NONE) {
@@ -8,10 +8,11 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 /**
- * LEFT COLUMN: Fetch rope products from the "products" table
+ * LEFT COLUMN: Fetch rope products from the "products" table.
+ * (Now also selects the "description" field.)
  */
 $searchTerm = "%rope%";
-$sql = "SELECT id, name, price, image
+$sql = "SELECT id, name, price, image, description
         FROM products
         WHERE name LIKE ?
            OR description LIKE ?";
@@ -26,10 +27,10 @@ while ($row = $result->fetch_assoc()) {
 }
 
 /**
- * RIGHT COLUMN: Fetch from the "climbing_ropes" table
- * (assuming `id`, `title`, `price`, `image_url` exist)
+ * RIGHT COLUMN: Fetch from the "climbing_ropes" table.
+ * (Assumes columns: id, title, price, image_url exist)
  */
-$ropeStmt = $conn->query("SELECT id, title, price, image_url FROM climbing_ropes limit 4");
+$ropeStmt = $conn->query("SELECT id, title, price, image_url FROM climbing_ropes LIMIT 4");
 $climbingRopes = [];
 while ($row = $ropeStmt->fetch_assoc()) {
     $climbingRopes[] = $row;
@@ -50,19 +51,15 @@ while ($row = $ropeStmt->fetch_assoc()) {
       margin: 0;
       font-family: Arial, sans-serif;
     }
-
-    /* The navbar container */
     .navbar {
       display: flex;
       align-items: center;
-      background: #3d3c3c; /* Dark gray background */
+      background: #3d3c3c;
       color: #fff;
       padding: 0 20px;
       height: 60px;
       position: relative;
     }
-
-    /* Menu icon (three bars) - optional */
     .menu-icon {
       display: inline-block;
       cursor: pointer;
@@ -74,8 +71,6 @@ while ($row = $ropeStmt->fetch_assoc()) {
       background-color: #fff;
       margin: 5px 0;
     }
-
-    /* Navbar links */
     .navbar a {
       color: #fff;
       text-decoration: none;
@@ -84,10 +79,8 @@ while ($row = $ropeStmt->fetch_assoc()) {
       padding: 5px 0;
     }
     .navbar a:hover {
-      color: #f0c14b; /* Gold-like hover color */
+      color: #f0c14b;
     }
-
-    /* The horizontal <ul> for dropdown and other links */
     .menu {
       list-style: none;
       margin: 0;
@@ -95,19 +88,12 @@ while ($row = $ropeStmt->fetch_assoc()) {
       display: inline-flex;
       align-items: center;
     }
-    .menu > li {
-      position: relative;
-    }
-
-    /* ------ Persistent Dropdown using Checkbox Hack ------ */
-    /* Hide the checkbox but keep it in the DOM */
+    .menu > li { position: relative; }
     .dropdown input[type="checkbox"] {
       position: absolute;
       opacity: 0;
       pointer-events: none;
     }
-
-    /* Style the label as the dropbtn */
     .dropdown .dropbtn {
       cursor: pointer;
       display: inline-block;
@@ -115,26 +101,20 @@ while ($row = $ropeStmt->fetch_assoc()) {
       color: #fff;
       text-decoration: none;
     }
-
-    /* Dropdown content container */
     .dropdown-content {
       display: none;
       position: absolute;
-      top: 40px; /* Show just below the navbar */
+      top: 40px;
       background-color: #4b4b4b;
       min-width: 200px;
       border-radius: 4px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      z-index: 999; /* on top of other elements */
+      z-index: 999;
       padding: 10px;
     }
-
-    /* Show dropdown when the checkbox is checked */
     .dropdown input[type="checkbox"]:checked ~ .dropdown-content {
       display: block;
     }
-
-    /* Each column or link in dropdown */
     .dropdown-content .dropdown-row {
       display: flex;
       gap: 20px;
@@ -154,11 +134,8 @@ while ($row = $ropeStmt->fetch_assoc()) {
     .dropdown-content .column a:hover {
       text-decoration: underline;
     }
-    /* ------ End Persistent Dropdown ------ */
-
-    /* Search box (far right) */
     .categories-search {
-      margin-left: auto; /* pushes it to the right */
+      margin-left: auto;
       padding: 6px 10px;
       border-radius: 20px;
       border: 1px solid #ccc;
@@ -170,8 +147,6 @@ while ($row = $ropeStmt->fetch_assoc()) {
     .categories-search::placeholder {
       color: #888;
     }
-
-    /* Responsive design for smaller screens */
     @media (max-width: 768px) {
       .navbar {
         flex-wrap: wrap;
@@ -292,7 +267,7 @@ while ($row = $ropeStmt->fetch_assoc()) {
     <div></div>
     <div></div>
   </div>
-  <a href="#">Home</a>
+  <a href="/hello/user_page.php">Home</a>
   <a href="#">Products</a>
 
   <!-- Dropdown using checkbox hack -->
@@ -335,7 +310,7 @@ while ($row = $ropeStmt->fetch_assoc()) {
   <a href="#">Best Sellers</a>
   <a href="cart_user/cart.php">My Order</a>
   <a href="cart_user/info.php">Info</a>
-
+  
   <!-- Search box -->
   <input type="text" placeholder="Search for products..." class="categories-search">
 </div>
@@ -343,7 +318,7 @@ while ($row = $ropeStmt->fetch_assoc()) {
 
 <!-- MAIN CONTENT (PRODUCT CARDS) -->
 <div class="container">
-  <!-- LEFT COLUMN: Rope products from "products" table -->
+  <!-- LEFT COLUMN: Rope products from the "products" table -->
   <div class="product-container">
     <?php foreach ($products as $product): ?>
       <?php 
@@ -354,6 +329,9 @@ while ($row = $ropeStmt->fetch_assoc()) {
         <img src="<?= $product_image_url ?>" alt="Product Image">
         <h3><?= htmlspecialchars($product['name']) ?></h3>
         <p>Price: ₹<?= htmlspecialchars($product['price']) ?></p>
+        <?php if (!empty($product['description'])): ?>
+          <p><?= htmlspecialchars($product['description']) ?></p>
+        <?php endif; ?>
         <!-- "Add to Cart" form -->
         <form action="/hello/cart_user/add_to_cart.php" method="POST" style="margin-top: 20px;">
           <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
@@ -363,18 +341,15 @@ while ($row = $ropeStmt->fetch_assoc()) {
     <?php endforeach; ?>
   </div>
 
-  <!-- RIGHT COLUMN: Items from "climbing_ropes" table -->
+  <!-- RIGHT COLUMN: Items from the "climbing_ropes" table -->
   <div class="rope-container">
     <?php foreach ($climbingRopes as $rope): ?>
       <div class="card">
         <img src="<?= htmlspecialchars($rope['image_url']) ?>" alt="Climbing Rope">
         <h3><?= htmlspecialchars($rope['title']) ?></h3>
         <p>Price: ₹<?= htmlspecialchars($rope['price']) ?></p>
-        <!-- "Add to Cart" form -->
-        <form action="/hello/add_to_cart.php" method="POST" style="margin-top: 20px;">
-          <input type="hidden" name="product_id" value="<?= $rope['id'] ?>">
-          <button type="submit" class="add-to-cart">Add to Cart</button>
-        </form>
+        <!-- Direct-link button to Amazon -->
+        <button type="button" class="add-to-cart" onclick="window.location.href='https://www.amazon.in/b/ref=Sports_Halo_Camping&outdoors_Dec_PC_2?pf_rd_r=A26XAAXBVSQCRSPZNHFF&pf_rd_p=20ec67e4-9490-42f3-9928-db846e097322&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-2&pf_rd_t=&pf_rd_i=1984988031&node=62320647031'">On amazon</button>
       </div>
     <?php endforeach; ?>
   </div>
@@ -382,4 +357,3 @@ while ($row = $ropeStmt->fetch_assoc()) {
 
 </body>
 </html>
-
