@@ -1,6 +1,6 @@
 <?php
 // Include your database connection file which defines $conn
-require_once '/hello/db_connect.php';
+require_once __DIR__ . '/../../db_connect.php';
 
 // Start the session if not already started
 if (session_status() === PHP_SESSION_NONE) {
@@ -8,10 +8,11 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 /**
- * LEFT COLUMN: Fetch rope products from the "products" table
+ * LEFT COLUMN: Fetch rope products from the "products" table.
+ * Note: We now select the "description" field as well.
  */
 $searchTerm = "%tent%";
-$sql = "SELECT id, name, price, image
+$sql = "SELECT id, name, price, image, description
         FROM products
         WHERE name LIKE ?
            OR description LIKE ?";
@@ -26,10 +27,15 @@ while ($row = $result->fetch_assoc()) {
 }
 
 /**
- * RIGHT COLUMN: Fetch from the "climbing_gear" table
- * (assuming `id`, `title`, `price`, `image_url` exist)
+ * RIGHT COLUMN: Fetch from the "tents" table.
+ * This query now fetches id, title, price, image_url, description, and rating.
  */
-$gearStmt = $conn->query("SELECT id, title, price, image_url FROM tents limit 7");
+$gearStmt = $conn->query("
+    SELECT id, title, price, image_url, description, rating
+    FROM tents
+    LIMIT 7
+");
+
 $climbingGear = [];
 while ($row = $gearStmt->fetch_assoc()) {
     $climbingGear[] = $row;
@@ -55,7 +61,7 @@ while ($row = $gearStmt->fetch_assoc()) {
     .navbar {
       display: flex;
       align-items: center;
-      background: #3d3c3c; /* Dark gray background */
+      background:rgb(0, 0, 0); /* Dark gray background */
       color: #fff;
       padding: 0 20px;
       height: 60px;
@@ -232,12 +238,12 @@ while ($row = $gearStmt->fetch_assoc()) {
     }
     .card h3 {
       font-size: 22px;
-      color: #4B0082;
+      color:rgb(0, 0, 0);
       margin: 15px 0 10px;
     }
     .card p {
       font-size: 18px;
-      color: #6A5ACD;
+      color:rgb(0, 0, 0);
       font-weight: bold;
       margin: 10px 0;
     }
@@ -292,7 +298,7 @@ while ($row = $gearStmt->fetch_assoc()) {
     <div></div>
     <div></div>
   </div>
-  <a href="#">Home</a>
+  <a href="/hello/user_page.php">Home</a>
   <a href="#">Products</a>
 
   <!-- Dropdown using checkbox hack -->
@@ -354,6 +360,9 @@ while ($row = $gearStmt->fetch_assoc()) {
         <img src="<?= $product_image_url ?>" alt="Product Image">
         <h3><?= htmlspecialchars($product['name']) ?></h3>
         <p>Price: ₹<?= htmlspecialchars($product['price']) ?></p>
+        <?php if (!empty($product['description'])): ?>
+          <p><?= htmlspecialchars($product['description']) ?></p>
+        <?php endif; ?>
         <!-- "Add to Cart" form -->
         <form action="/hello/cart_user/add_to_cart.php" method="POST" style="margin-top: 20px;">
           <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
@@ -363,17 +372,23 @@ while ($row = $gearStmt->fetch_assoc()) {
     <?php endforeach; ?>
   </div>
 
-  <!-- RIGHT COLUMN: Items from "climbing_gear" table -->
+  <!-- RIGHT COLUMN: Items from the "tents" table with new columns -->
   <div class="gear-container">
     <?php foreach ($climbingGear as $gear): ?>
       <div class="card">
         <img src="<?= htmlspecialchars($gear['image_url']) ?>" alt="Climbing Gear">
         <h3><?= htmlspecialchars($gear['title']) ?></h3>
         <p>Price: ₹<?= htmlspecialchars($gear['price']) ?></p>
-        <!-- "Add to Cart" form -->
+        <?php if (!empty($gear['description'])): ?>
+          <p><?= htmlspecialchars($gear['description']) ?></p>
+        <?php endif; ?>
+        <?php if (!empty($gear['rating'])): ?>
+          <p>Rating: <?= htmlspecialchars($gear['rating']) ?> / 5</p>
+        <?php endif; ?>
+        <!-- "Add to Cart" (in your code, it links to Amazon, but adapt as needed) -->
         <form action="/hello/add_to_cart.php" method="POST" style="margin-top: 20px;">
           <input type="hidden" name="product_id" value="<?= $gear['id'] ?>">
-          <button type="submit" class="add-to-cart">On amazon</button>
+          <button type="button" class="add-to-cart" onclick="window.location.href='https://www.amazon.in/b/ref=Sports_Halo_Camping&outdoors_Dec_PC_2?pf_rd_r=A26XAAXBVSQCRSPZNHFF&pf_rd_p=20ec67e4-9490-42f3-9928-db846e097322&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-2&pf_rd_t=&pf_rd_i=1984988031&node=62320647031'">On amazon</button>
         </form>
       </div>
     <?php endforeach; ?>
