@@ -8,7 +8,7 @@
      </div>
 
     <div class="icons">
-        <?php include '/hello/components/profile.php'; ?> <!-- Profile before Cart -->
+        <?php include 'components/profile.php'; ?> <!-- Profile before Cart -->
         
         <a href="/hello/cart_user/cart.php" class="cart">🛒 Cart</a>
         <a href="logout.php" class="logout">🚪 Logout</a>

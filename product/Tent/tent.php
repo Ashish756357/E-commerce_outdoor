@@ -1,6 +1,6 @@
 <?php
 // Include your database connection file which defines $conn
-require_once '/hello/db_connect.php';
+require_once __DIR__ . '/../../db_connect.php';
 
 // Start the session if not already started
 if (session_status() === PHP_SESSION_NONE) {

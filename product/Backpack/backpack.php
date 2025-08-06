@@ -1,6 +1,6 @@
 <?php
 // Include your database connection file which defines $conn
-require_once '/hello/db_connect.php';
+require_once __DIR__ . '/../../db_connect.php';
 
 // 1) Fetch products that contain "bag" in name or description
 $searchTerm = "%bag%";

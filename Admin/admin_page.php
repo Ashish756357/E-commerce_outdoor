@@ -43,6 +43,8 @@ css">
 
         <a href="\hello\components_admin\banner_mg.php">Manage Banners</a>
 
+        <a href="../Admin/package_mgmt.php">Manage Packages</a>
+
         <a href="/hello/login_form.php">Logout</a>   
 
         <button id="dark-mode-toggle">🌙</button>

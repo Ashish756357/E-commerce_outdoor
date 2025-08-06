@@ -16,6 +16,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="stylesheet" href="/hello/assets/css/product_card.css">
     <link rel="stylesheet" href="/hello/assets/css/footer.css">
     <link rel="stylesheet" href="/hello/assets/css/brand.css">
+    <link rel="stylesheet" href="/hello/assets/css/package_display.css">
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/auto-switch.js"></script>
 
@@ -46,9 +47,9 @@ if (session_status() === PHP_SESSION_NONE) {
                 <div class="dropdown-row">
                     <div class="column">
                         <h3>Camping Gear</h3>
-                        <a href="/hello/product/Backpack/backpack.php">Backpacks</a>
+                        <a href="/hello/product/Backpack/backpack.php">Sleeping bags</a>
                         <a href="/hello/product/Tent/tent.php">Tents & Shelters</a>
-                        <a href="#">Sleeping bags</a>
+                        <a href="#">bags</a>
                     </div>
                     <div class="column">
                         <h3>Climbing Gear</h3>
@@ -78,7 +79,8 @@ if (session_status() === PHP_SESSION_NONE) {
 
     <?php include 'components/banner.php'; ?>
     <?php include 'components/brand.php'; ?>
-    <?php include 'components/product_card.php'; ?>
+
+    <?php include 'components/packages.php'; ?>
 
     <?php include 'components/footer.php'; ?>
 </body>
