@@ -23,7 +23,7 @@ while ($row = $result->fetch_assoc()) {
 <div class="banner-container">
     <?php if (!empty($images)): ?>
         <img id="bannerImage" src="http://localhost/<?php echo $images[0]; ?>" alt="Banner Image">
-        <a id="shopNowBtn" href="#" class="shop-now-btn">Shop Now</a> <!-- Button inside banner -->
+        <a id="shopNowBtn" href="user_page.php#packages" class="shop-now-btn">Shop Now</a> <!-- Button inside banner -->
     <?php else: ?>
         <p>No banner available.</p>
     <?php endif; ?>
