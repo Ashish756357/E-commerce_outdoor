@@ -13,6 +13,7 @@ $initial = strtoupper(substr($username, 0, 1)); // Get first letter
             <a href="#">👤 My Account</a>
             <a href="#">📦 Track Order</a>
             <a href="#">📝 Feedback</a>
+            <a href="logout.php" class="logout"> Logout</a>
     </div>
 </div>
 
@@ -26,7 +27,7 @@ $initial = strtoupper(substr($username, 0, 1)); // Get first letter
     display: none;
     position: absolute;
     top: 120%; 
-    left: 0; 
+    left: -93%; 
     background-color: #000000ff;
     min-width: 160px; 
     max-width: 250px;  
