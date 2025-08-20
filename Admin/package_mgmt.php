@@ -68,7 +68,7 @@ if (isset($_GET['edit_id'])) {
 <html lang="en">
 <head>
     <title>Manage Packages</title>
-    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/package_mg.css">
 </head>
 <body>
     <h2>Manage Packages</h2>
@@ -91,9 +91,11 @@ if (isset($_GET['edit_id'])) {
                 <td><?= $row['stock'] ?></td>
                 <td><?= $row['dis'] ?></td>
                 <td>
-                    <a href="?edit_id=<?= $row['id'] ?>">Edit</a> | 
-                    <a href="?delete_id=<?= $row['id'] ?>" onclick="return confirm('Are you sure?')">Delete</a>
-                </td>
+                    <div class="action-buttons">
+                        <a href="?edit_id=<?= $row['id'] ?>">Edit</a>
+                        <a href="?delete_id=<?= $row['id'] ?>" onclick="return confirm('Are you sure?')">Delete</a>
+                    </div>
+                </td>   
             </tr>
         <?php } ?>
     </table>

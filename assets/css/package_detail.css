@@ -1,0 +1,290 @@
+/* Package Detail Page - Premium Travel Style */
+.package-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px;
+    font-family: 'Poppins', Arial, sans-serif;
+    color: #2c2c2c;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    margin-bottom: 25px;
+    font-size: 14px;
+    color: #888;
+}
+.breadcrumb a {
+    color: #5a67d8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.breadcrumb a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* Header */
+.package-detail-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3);
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out; /* Added fade-in animation */
+}
+.package-detail-header::after {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+}
+.package-detail-header h1 {
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+.availability-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.25);
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 1.1em;
+    backdrop-filter: blur(6px);
+}
+
+/* Content Layout */
+.package-detail-content {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    margin-bottom: 60px;
+    align-items: start;
+}
+
+/* Image Section */
+.package-image-section {
+    position: relative;
+}
+.main-image {
+    width: 100%;
+    height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    transition: transform 0.4s ease;
+}
+.main-image:hover {
+    transform: scale(1.02);
+}
+.main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Info Section */
+.package-info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    animation: slideIn 0.5s ease-in-out; /* Added slide-in animation */
+}
+.package-description h3,
+.package-features h3,
+.booking-section h3 {
+    color: #1f2937;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+    font-weight: 600;
+    border-left: 5px solid #6366f1;
+    padding-left: 12px;
+}
+.package-description p {
+    line-height: 1.9;
+    color: #555;
+    font-size: 1.05em;
+}
+
+/* Features */
+.package-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.package-features li {
+    padding: 12px 0;
+    border-bottom: 1px dashed #ddd;
+    color: #444;
+    font-size: 1.05em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.package-features li::before {
+    content: "✔";
+    color: #4f46e5;
+    font-weight: bold;
+}
+
+/* Booking */
+.booking-section {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+.booking-section:hover {
+    transform: translateY(-3px);
+}
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 8px rgba(99,102,241,0.3);
+    outline: none;
+}
+.book-now-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.book-now-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.4);
+}
+
+/* Recommendations */
+.package-recommendations {
+    margin-top: 60px;
+    padding: 40px;
+    background: #f9fafb;
+    border-radius: 20px;
+}
+.package-recommendations h3 {
+    text-align: center;
+    margin-bottom: 35px;
+    color: #1f2937;
+    font-size: 1.9em;
+    font-weight: 600;
+}
+.recommendations-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+.rec-package-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.rec-package-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+.rec-package-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.rec-package-card h4 {
+    padding: 18px;
+    margin: 0;
+    color: #333;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.view-details {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    background: #6366f1;
+    color: white;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+.view-details:hover {
+    background: #7c3aed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .package-detail-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .package-detail-header h1 {
+        font-size: 2.2em;
+    }
+}
+@media (max-width: 480px) {
+    .package-detail-container {
+        padding: 15px;
+    }
+    .package-detail-header {
+        padding: 25px;
+    }
+    .package-detail-header h1 {
+        font-size: 1.6em;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

@@ -123,7 +123,7 @@ body {
 .navbar .logo {
     /* font-family: "Cinzel", serif; */
     font-family: "Cuprum", sans-serif;
-    font-size: 54px; /* Keeping the original size */
+    font-size: 25px; /* Keeping the original size */
     font-weight: bold;
     background: linear-gradient(120deg, #ffffff 50%, #E6B800 50%); /* Equal White-Gold Blend */
     -webkit-background-clip: text;
@@ -134,16 +134,13 @@ body {
 }
 
 
-
-
-
 /* 🌟 General Icon Styling */
 .navbar .icons a {
     font-family: "Poppins", sans-serif;
     color: #bdbdbd; /* Soft Gray */
     text-decoration: none;
-    margin-left: 15px;
-    font-size: 16px;
+    margin-left: 0px;
+    font-size: 20px;
     transition: color 0.3s ease-in-out;
 }
 
@@ -159,7 +156,7 @@ body {
 
 /* 🛒 Cart Hover - Soft Contrast */
 .navbar .icons a.cart:hover {
-    background: #333333; /* Dark Gray */
+
     color: #ffffff; /* White Text */
 }
 
@@ -175,20 +172,8 @@ body {
 
 /* 🔥 Logout Hover - Stronger Contrast */
 .navbar .icons a.logout:hover {
-    background: #4d0000; /* Deep Red */
     color: #ffffff; /* White for Visibility */
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .nav-links {
     display: flex;
@@ -224,6 +209,45 @@ body {
     max-width: 90vw; /* Ensures content stays within bounds */
     margin: auto;
 }
+
+.profile-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.profile-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #1C1C1C, #444); /* Deep black fading into steel gray */
+    color: #EAEAEA; /* Soft white for contrast */
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-transform: uppercase;
+    border: 3px solid #555; /* Muted metallic gray border */
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(100, 100, 100, 0.4), /* Subtle soft glow */
+                inset 2px 2px 5px rgba(0, 0, 0, 0.5); /* Inner depth */
+}
+
+/* 🔥 Hover Effect: "Mystic Pulse" */
+.profile-icon:hover {
+    background: linear-gradient(135deg, #252525, #666); /* Dark charcoal with gray highlights */
+    border-color: #888; /* Slightly lighter gray border */
+    box-shadow: 0 0 12px rgba(160, 160, 160, 0.6), /* Soft glowing aura */
+                inset 3px 3px 7px rgba(0, 0, 0, 0.5);
+}
+
+/* 🖤 Click Effect: "Pressed Carbon" */
+.profile-icon:active {
+    transform: scale(1.05) translateY(2px); /* Pressed button effect */
+    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.6); /* Deep press effect */
+}
+
 
 
 /* Sidebar Links */
@@ -293,7 +317,7 @@ body {
 
 
 /* Dropdown */
-.dropdown-menu {
+..dropdown-content a-menu {
     display: none;
     list-style: none;
     padding-left: 20px;
@@ -316,7 +340,7 @@ body {
     backdrop-filter: blur(10px); /* Stronger blur effect for distinction */
     border-radius: 0;
     width: 100%;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow to separate it slightly */
+    box-shadow: -2px 1px 20px 20px rgba(0, 0, 0, 0.2) /* Soft shadow to separate it slightly */
 }
 
 /* Default menu items */
@@ -344,13 +368,8 @@ body {
     transform: scale(1.03); /* Subtle scale-up */
     transition: transform 0.2s ease-out, background 0.25s ease-in-out, color 0.2s ease-in-out;
     font-weight: 600; /* Slight emphasis */
-    text-decoration: underline; /* Adds a subtle highlight */
+
 }
-
-
-
-
-
 
 
 
@@ -384,6 +403,18 @@ body {
     border: 1px solid rgba(200, 150, 80, 0.4); /* Subtle golden accent */
     z-index: 1000;
     border-radius: 8px; /* Softer edges for a refined look */
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: #ffffffff;
+    padding: 16px 16px;
+    text-decoration: none;
+    display: block;
+    align-items: center;
+    /* border-bottom: 1px solid #ddd; */
+    border-radius: 8px;
+
 }
 
 
@@ -442,7 +473,7 @@ body {
     padding: 5px 15px;
     height: 30px;
     width: 100%;
-    max-width: 450px;
+    max-width: 82px;
     border-radius: 15px;
     border: 2px solid rgba(150, 110, 60, 0.9); /* Aged bronze-like finish */
     background: linear-gradient(145deg, rgba(25, 20, 15, 0.95), rgba(55, 45, 35, 0.95)); /* Aged leather texture */
@@ -484,14 +515,6 @@ body {
     cursor: pointer;
 }
 
-
-
-
-
-
-
-
-/* General Banner Styling */
 
 
 
@@ -603,44 +626,6 @@ footer {
 
 
 
-.profile-container {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.profile-icon {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #1C1C1C, #444); /* Deep black fading into steel gray */
-    color: #EAEAEA; /* Soft white for contrast */
-    font-size: 24px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    text-transform: uppercase;
-    border: 3px solid #555; /* Muted metallic gray border */
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 10px rgba(100, 100, 100, 0.4), /* Subtle soft glow */
-                inset 2px 2px 5px rgba(0, 0, 0, 0.5); /* Inner depth */
-}
-
-/* 🔥 Hover Effect: "Mystic Pulse" */
-.profile-icon:hover {
-    background: linear-gradient(135deg, #252525, #666); /* Dark charcoal with gray highlights */
-    transform: scale(1.15) rotate(3deg); /* Subtle 3D shift */
-    border-color: #888; /* Slightly lighter gray border */
-    box-shadow: 0 0 12px rgba(160, 160, 160, 0.6), /* Soft glowing aura */
-                inset 3px 3px 7px rgba(0, 0, 0, 0.5);
-}
-
-/* 🖤 Click Effect: "Pressed Carbon" */
-.profile-icon:active {
-    transform: scale(1.05) translateY(2px); /* Pressed button effect */
-    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.6); /* Deep press effect */
-}
 
 
 
@@ -649,19 +634,7 @@ footer {
 
 
 
-
-
-.logout-btn {
-    background-color: red;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-.logout-btn:hover {
-    background-color: darkred;
-}
+/* NOT IN USE FOR NOW  */
 
 /* Center text styling */
 .navbar-center-text {

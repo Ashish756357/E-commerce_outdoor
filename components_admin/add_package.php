@@ -50,7 +50,7 @@ $conn->close();
 <html lang="en">
 <head>
     <title>Add Package</title>
-    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/add_package_mg.css">
 </head>
 <body>
     <h2>Add New Package</h2>

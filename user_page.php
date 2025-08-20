@@ -25,16 +25,18 @@ if (session_status() === PHP_SESSION_NONE) {
 
 <body>
     <!-- Include Sidebar -->
-    <?php include 'components/sidebar.php'; ?>
+
+    <!-- php include 'components/sidebar.php';  -->
+
     <!-- Navbar -->
     <?php include 'components/navbar.php'; ?>
     <!-- Scrollable Categories with Search Bar -->
     <div class="categories">
-    <div class="menu-icon">
+    <!-- <div class="menu-icon">
            <div></div>
            <div></div>
            <div></div>
-        </div>
+        </div> -->
 
     <a href="#">Home</a>
     <a href="#">Products</a>
@@ -71,15 +73,13 @@ if (session_status() === PHP_SESSION_NONE) {
             </div>
         </li>
     </ul>
-    <a href="#">Best Sellers</a>
     <a href="cart_user/cart.php">My Order</a>
-    <a href="cart_user/info.php">Info</a>
-    <input type="text" placeholder="Search for products..." class="categories-search">
+    <!-- <a href="cart_user/info.php">Info</a> -->
+    <input type="text" placeholder="Search " class="categories-search">
 </div>
 
     <?php include 'components/banner.php'; ?>
-    <?php include 'components/brand.php'; ?>
-
+    <!-- php include 'components/brand.php';  -->
     <?php include 'components/packages.php'; ?>
 
     <?php include 'components/footer.php'; ?>

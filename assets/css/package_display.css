@@ -1,125 +1,122 @@
-/* Package Container to Position Cards */
-.package-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 69px;
-    max-width: 950px;
-    margin: 0 auto;
-    padding: 7px;
-    justify-content: start;
-    align-items: start;
-    align-content: space-between;
-    justify-items: start;
+body {
+    font-family: "Segoe UI", sans-serif;
+    margin: 0;
+    background: #000000;
+    color: #333;
 }
 
-/* Individual Package Card */
-.package-card {
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-    padding: 20px;
+/* Section Header */
+.section-header {
     text-align: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    color: #333;
+    padding: 60px 20px 40px;
+}
 
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0781fb;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+
+/* Package Cards Grid */
+.package-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 20px 50px 60px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Card Style */
+.package-card {
+    background: #000000;
+    border-radius: 14px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.package-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+/* Image Section */
+.card-image {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.card-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.stock-badge {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: #27ae60;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+/* Content Section (flex grow keeps buttons aligned) */
+.card-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    flex-grow: 1;
+    padding: 22px;
+    text-align: center;
 }
 
-/* Hover Effect */
-.package-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0781fb;
+    margin: 12px 0 16px;
 }
 
-/* Package Image with Fixed Dimensions (384x220) */
-.package-card img {
-    width: 384px;
-    height: 220px;
-    object-fit: cover;
-    background: #fafafa;
-    border-radius: 8px;
-    margin: 0 auto;
-    transition: transform 0.3s ease-in-out;
+/* Description */
+.card-content .description {
+    font-size: 0.95rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    flex-grow: 1; /* pushes button down */
 }
 
-/* Image Hover Effect */
-.package-card img:hover {
-    transform: scale(1.05);
+/* Button stays at bottom */
+.book-btn {
+  display: block;
+  width: 80%;
+  margin: 15px auto 20px;
+  padding: 12px;
+  background: linear-gradient(45deg, #ff6b6b, #ff9f43);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255,107,107,0.3);
 }
-
-/* Package Title */
-.package-card h3 {
-    color: #4B0082;
-    font-size: 20px;
-    margin: 10px 0;
-}
-
-/* Stock Info */
-.package-card .stock {
-    font-size: 14px;
-    color: #333;
-    margin: 5px 0;
-}
-
-/* Package Description */
-.package-card .description {
-    font-size: 14px;
-    color: #666;
-    margin: 10px 0;
-    text-align: justify;
-    min-height: 60px;
-}
-
-/* Book Now or Action Button (if needed) */
-.package-card .action-button {
-    background: black;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-    display: block;
-    width: 100%;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .package-container {
-        grid-template-columns: repeat(1, 1fr);
-    }
-    .package-card {
-        max-width: 90%;
-    }
-    .package-card img {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 384 / 220;
-    }
-}
-
-@media (max-width: 480px) {
-    .package-card {
-        max-width: 100%;
-    }
-    .package-card h3 {
-        font-size: 18px;
-    }
-    .package-card .stock {
-        font-size: 13px;
-    }
-    .package-card .description {
-        font-size: 13px;
-    }
-    .package-card .action-button {
-        font-size: 14px;
-    }
-    .package-card img {
-        object-fit: contain;
-    }
+.book-btn:hover {
+  background: linear-gradient(45deg, #ff4757, #ffa502);
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(255,107,107,0.5);
 }
