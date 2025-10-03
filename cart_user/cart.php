@@ -9,9 +9,14 @@ $user_id = $_SESSION['user_id'];
 
 // 1. Fetch cart items from database
 $cart_query = $conn->prepare("
-    SELECT cart.product_id, cart.quantity, products.name, products.price, products.image
+    SELECT cart.product_id, cart.package_id, cart.quantity, cart.booking_date, cart.special_requests,
+           COALESCE(products.name, package.name) AS name,
+           COALESCE(products.price, 0) AS price,
+           COALESCE(products.image, package.image) AS image,
+           CASE WHEN cart.product_id IS NOT NULL THEN 'product' ELSE 'package' END AS type
     FROM cart
-    JOIN products ON cart.product_id = products.id
+    LEFT JOIN products ON cart.product_id = products.id
+    LEFT JOIN package ON cart.package_id = package.id
     WHERE cart.user_id = ?
 ");
 $cart_query->bind_param("i", $user_id);
@@ -22,7 +27,8 @@ $cart_items = [];
 $total = 0;
 
 while ($row = $cart_result->fetch_assoc()) {
-    $cart_items[$row['product_id']] = $row;
+    $key = $row['product_id'] ?? $row['package_id'];
+    $cart_items[$key] = $row;
     $total += $row['price'] * $row['quantity'];
 }
 
@@ -251,11 +257,11 @@ $total_with_charges = $total + $delivery_charge + $convenience_charge;
             <h3>Shipping Method</h3>
             <label class="method-item">
                 <input type="radio" name="shipping_method" value="ground" checked />
-                Ground Shipping: $10.00
+                Ground Shipping: Rs 10.00
             </label>
             <label class="method-item">
                 <input type="radio" name="shipping_method" value="overnight" />
-                Overnight Shipping: $20.00
+                Overnight Shipping: Rs 20.00
             </label>
             <label class="method-item">
                 <input type="radio" name="shipping_method" value="free" />
@@ -275,25 +281,48 @@ $total_with_charges = $total + $delivery_charge + $convenience_charge;
         <h3>Your Cart</h3>
 
         <!-- Loop through cart items -->
-        <?php foreach ($cart_items as $id => $product) : ?>
+        <?php foreach ($cart_items as $id => $item) : ?>
             <div class="cart-item">
-                <img src="<?php echo '/hello/' . htmlspecialchars($product['image']); ?>" 
-                     alt="<?php echo htmlspecialchars($product['name']); ?>" />
+                <?php
+                $imagePath = $item['image'];
+                // If package, prepend product_img folder path
+                if ($item['type'] === 'package') {
+                    $imagePath = '/hello/product_img/' . $imagePath;
+                } else {
+                    $imagePath = '/hello/' . $imagePath;
+                }
+                ?>
+                <img src="<?php echo htmlspecialchars($imagePath); ?>"
+                     alt="<?php echo htmlspecialchars($item['name']); ?>" />
                 <div class="cart-item-info">
-                    <h4><?php echo htmlspecialchars($product['name']); ?></h4>
-                    <p>Price: ₹<?php echo number_format($product['price'], 2); ?></p>
+                    <h4><?php echo htmlspecialchars($item['name']); ?> <?php if ($item['type'] == 'package') echo '(Package)'; ?></h4>
+                    <p>Price: ₹<?php echo number_format($item['price'], 2); ?></p>
+                    <?php if ($item['type'] == 'package'): ?>
+                        <p>Booking Date: <?php echo htmlspecialchars($item['booking_date']); ?></p>
+                        <?php if (!empty($item['special_requests'])): ?>
+                            <p>Special Requests: <?php echo htmlspecialchars($item['special_requests']); ?></p>
+                        <?php endif; ?>
+                    <?php endif; ?>
 
                     <div class="quantity-controls">
                         <form method="POST" action="update_cart.php">
-                            <input type="hidden" name="product_id" value="<?php echo $id; ?>">
+                            <?php if ($item['type'] == 'product'): ?>
+                                <input type="hidden" name="product_id" value="<?php echo $id; ?>">
+                            <?php else: ?>
+                                <input type="hidden" name="package_id" value="<?php echo $id; ?>">
+                            <?php endif; ?>
                             <input type="hidden" name="action" value="decrease">
                             <button type="submit">-</button>
                         </form>
 
-                        <span><?php echo $product['quantity']; ?></span>
+                        <span><?php echo $item['quantity']; ?></span>
 
                         <form method="POST" action="update_cart.php">
-                            <input type="hidden" name="product_id" value="<?php echo $id; ?>">
+                            <?php if ($item['type'] == 'product'): ?>
+                                <input type="hidden" name="product_id" value="<?php echo $id; ?>">
+                            <?php else: ?>
+                                <input type="hidden" name="package_id" value="<?php echo $id; ?>">
+                            <?php endif; ?>
                             <input type="hidden" name="action" value="increase">
                             <button type="submit">+</button>
                         </form>

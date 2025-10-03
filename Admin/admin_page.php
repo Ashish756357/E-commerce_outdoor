@@ -19,6 +19,12 @@ $productResult = $conn->query($productQuery);
 $productRow = $productResult->fetch_assoc();
 $total_products = $productRow['total_products'];
 
+// Fetch total orders count from user_order_summary view
+$orderQuery = "SELECT COALESCE(SUM(total_orders), 0) AS total_orders FROM user_order_summary";
+$orderResult = $conn->query($orderQuery);
+$orderRow = $orderResult->fetch_assoc();
+$total_orders = $orderRow['total_orders'];
+
 $conn->close();
 ?>
 
@@ -26,8 +32,7 @@ $conn->close();
 <html lang="en">
 <head>
     <title>Admin Dashboard</title>
-<link rel="stylesheet" href="../assets/css/admin.
-css">
+<link rel="stylesheet" href="../assets/css/admin.css">
 <script src="../assets/js/theme_admin.js" defer></script>
 
 
@@ -61,6 +66,10 @@ css">
         <p class="product-box">
             <img src="../assets/images/empty-box.gif" alt="Product Icon" class="product-img">
             Total Products: <?php echo $total_products; ?>
+        </p>
+        <p class="order-box">
+            <!-- <img src="../assets/images/cart.gif" alt="Order Icon" class="order-img"> -->
+            <a href="/hello/Admin/user_orders.php" style="color: inherit; text-decoration: none;">Total Orders: <?php echo $total_orders; ?></a>
         </p>
     </div>
 </section>

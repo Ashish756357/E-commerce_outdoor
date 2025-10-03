@@ -8,11 +8,16 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Fetch cart details
+// Fetch cart details including products and packages
 $cart_query = $conn->prepare("
-    SELECT cart.product_id, cart.quantity, products.name, products.price, products.image 
-    FROM cart 
-    JOIN products ON cart.product_id = products.id 
+    SELECT cart.product_id, cart.package_id, cart.quantity,
+           COALESCE(products.name, package.name) AS name,
+           COALESCE(products.price, 0) AS price,
+           COALESCE(products.image, package.image) AS image,
+           CASE WHEN cart.product_id IS NOT NULL THEN 'product' ELSE 'package' END AS type
+    FROM cart
+    LEFT JOIN products ON cart.product_id = products.id
+    LEFT JOIN package ON cart.package_id = package.id
     WHERE cart.user_id = ?
 ");
 $cart_query->bind_param("i", $user_id);
@@ -23,7 +28,8 @@ $cart_items = [];
 $total = 0;
 
 while ($row = $cart_result->fetch_assoc()) {
-    $cart_items[$row['product_id']] = $row;
+    $key = $row['product_id'] ?? $row['package_id'];
+    $cart_items[$key] = $row;
     $total += $row['price'] * $row['quantity'];
 }
 
