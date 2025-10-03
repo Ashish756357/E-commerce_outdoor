@@ -19,6 +19,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&display=swap');
 
+
+html {
+    width: 100%; /* Default for desktops, tablets, etc. */
+}
+
+/* For screens smaller than 768px (common mobile breakpoint) */
+@media screen and (max-width: 768px) {
+    html {
+        width: 794px;
+    }
+}
 * {
     margin: 0;
     padding: 0;
@@ -317,7 +328,7 @@ body {
 
 
 /* Dropdown */
-..dropdown-content a-menu {
+.dropdown-content a-menu {
     display: none;
     list-style: none;
     padding-left: 20px;

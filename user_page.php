@@ -74,12 +74,16 @@ if (session_status() === PHP_SESSION_NONE) {
         </li>
     </ul>
     <a href="cart_user/cart.php">My Order</a>
-    <!-- <a href="cart_user/info.php">Info</a> -->
-    <input type="text" placeholder="Search " class="categories-search">
+    <a href="cart_user/info.php">Info</a>
+    <!-- Search Bar -->
+    <input type="text" class="categories-search" placeholder="search categories...">
+
+
+    
 </div>
 
-    <?php include 'components/banner.php'; ?>
-    <!-- php include 'components/brand.php';  -->
+    <!-- php include 'components/banner.php' -->
+    <?php include 'components/brand.php';?>
     <?php include 'components/packages.php'; ?>
 
     <?php include 'components/footer.php'; ?>
