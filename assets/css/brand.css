@@ -1,14 +1,26 @@
+body {
+    background-color: #f2f2f2; /* light grey */
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
 /* Partner Section Container */
 .partner-container {
     padding: 20px;
     text-align: center;
-    background: #000000ff; /* optional background color */
+    background-color: rgb(246, 245, 245);
     margin-bottom: 20px;
+
+    /* FIX for navbar overlap */
+    margin-top: 80px; /* adjust based on your navbar height */
 }
 
 .partner-container h2 {
     font-size: 24px;
-    color: #333;
+    color: #b1afaf;
     margin-bottom: 20px;
 }
 
@@ -26,7 +38,10 @@
     width: 120px;
     filter: grayscale(100%);
     transition: filter 0.3s ease;
+    background: #fff; /* White background */
 }
+
+
 
 .partner-logos a img:hover {
     filter: grayscale(0%);

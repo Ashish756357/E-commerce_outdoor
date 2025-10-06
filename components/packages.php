@@ -37,11 +37,12 @@ $result = $conn->query($query);
 
 echo '<section id="packages" class="package-section">';
 echo '<div class="section-header">';
-echo '<h2>🌍 Explore Our Packages</h2>';
+echo '<h2><span class="earth">🌍</span> <span class="title">Explore Our Packages</span></h2>';
 echo '<p>Discover the best travel experiences tailored just for you</p>';
 echo '</div>';
 
 echo '<div class="package-container">';
+
 
 if ($result->num_rows > 0) {
     while ($package = $result->fetch_assoc()) {
