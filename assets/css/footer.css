@@ -1,24 +1,29 @@
+/* Footer */
 footer {
-  background: linear-gradient(135deg, #1e272e, #000);
-  color: #fff;
+  background: linear-gradient(135deg, #f0f0f0, #e4e4e4); /* Subtle but distinct */
+  color: #222; /* Dark text */
   padding: 60px 0 30px;
-  font-family: 'Poppins', sans-serif;
+  border-top: 1px solid #ccc; /* Slightly stronger separator */
 }
 
+
+/* Footer Container */
 .footer-container {
   width: 90%;
   max-width: 1300px;
   margin: 0 auto;
 }
 
+/* Footer Top Section */
 .footer-top {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding-bottom: 35px;
 }
 
+/* Footer Columns */
 .footer-col {
   flex: 1;
   min-width: 220px;
@@ -29,20 +34,16 @@ footer {
   font-size: 18px;
   margin-bottom: 18px;
   font-weight: 600;
-  position: relative;
-}
-
-.footer-col h4::after {
-  content: "";
-  display: none;
+  color: #111; /* Darker heading */
 }
 
 .footer-col p {
   font-size: 14px;
   line-height: 1.7;
-  color: #dfe6e9;
+  color: #555; /* Medium-dark gray */
 }
 
+/* Links */
 .footer-col ul {
   list-style: none;
   padding: 0;
@@ -53,17 +54,18 @@ footer {
 }
 
 .footer-col ul li a {
-  color: #dfe6e9;
+  color: #444; /* Neutral gray */
   text-decoration: none;
-  transition: all 0.3s ease;
   font-size: 15px;
+  transition: color 0.3s ease, padding-left 0.3s ease;
 }
 
 .footer-col ul li a:hover {
-  color: #00cec9;
-  padding-left: 5px;
+  color: #007bff; /* Clean blue accent */
+  padding-left: 8px;
 }
 
+/* Social Icons */
 .social-icons {
   margin-top: 15px;
 }
@@ -72,30 +74,33 @@ footer {
   display: inline-block;
   width: 38px;
   height: 38px;
-  background: #2f3640;
-  color: #fff;
+  background: #f1f1f1; /* Light background */
+  color: #333; /* Dark icons */
   text-align: center;
   line-height: 38px;
   border-radius: 50%;
   margin-right: 12px;
-  transition: all 0.3s ease;
   font-size: 16px;
+  transition: background 0.4s ease, transform 0.3s ease, color 0.3s ease;
 }
 
+/* Hover Animation */
 .social-icons a:hover {
-  background: #00cec9;
-  transform: translateY(-3px);
+  background: #007bff; /* Blue hover */
+  color: #fff;
+  transform: translateY(-4px) scale(1.1);
 }
 
+/* Footer Bottom */
 .footer-bottom {
   text-align: center;
   padding-top: 25px;
   margin-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .footer-bottom p {
   font-size: 14px;
-  color: #b2bec3;
+  color: #666; /* Subtle gray */
   letter-spacing: 0.5px;
 }

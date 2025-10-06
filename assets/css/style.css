@@ -34,47 +34,46 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* background-color: #ffffff; */
+    color: #1a1a1a;
     /* font-family: 'Poppins', sans-serif; */
 }
 
 /* Body Styling */
 body {
-    display: flex;
-    flex-direction: column;
-    background: white;
-    color: #f8e9cc;
-    font-size: 1rem;
-    min-height: 100vh;
-    padding: 0;
+    background-color: #f7f8f8; /* very light gray */
+    color: #333; /* darker text for contrast */
+    font-family: "Josefin Sans", sans-serif;
     margin: 0;
+    padding: 0;
 }
 
 
 
 /* Sidebar Styling */
-.sidebar {
+/* .sidebar {
     position: fixed;
-    top: 100px; /* Adjust to be below navbar */
-    left: 20px; /* Adjust to place inside the blue-marked area */
-    width: 250px; /* Adjust width as needed */
-    height: 80vh; /* Adjust height as needed */
-    background: linear-gradient(135deg, rgba(28, 28, 28, 0.85), rgba(42, 42, 42, 0.85)); /* Sleek dark with transparency */
-    border-radius: 10px; /* Smooth edges */
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Slightly stronger shadow for depth */
+    top: 100px; 
+    left: 20px; 
+    width: 250px; 
+    height: 80vh; 
+    background: linear-gradient(135deg, rgba(28, 28, 28, 0.85), rgba(42, 42, 42, 0.85)); 
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); 
     transition: transform 0.3s ease-in-out;
-    transform: translateX(-300px); /* Hide initially */
-    z-index: 1000; /* Ensure it's above other elements */
-    backdrop-filter: blur(8px); /* Slight blur effect for a frosted glass feel */
-}
+    transform: translateX(-300px); 
+    z-index: 1000;
+    backdrop-filter: blur(8px); 
+} */
 
 
-.sidebar.active {
+/* .sidebar.active {
     transform: translateX(0);
-}
+} */
 
 /* Menu Icon (Three Bars) */
 /* Sidebar Menu Icon */
-.menu-icon {
+/* .menu-icon {
     position: absolute;
     top: 50%;
     left: 15px;
@@ -86,25 +85,25 @@ body {
     flex-direction: column;
     justify-content: space-between;
     z-index: 1000;
-}
+} */
 
-/* Sidebar Menu Bars */
+/* Sidebar Menu Bars
 .menu-icon div {
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, #e0e0e0, #a79c82); /* Subtle metallic gradient */
+    background: linear-gradient(90deg, #e0e0e0, #a79c82); 
     border-radius: 2px;
-    transition: 0.3s ease-in-out;
-}
+    transition: 0.3s ease-in-out; */
+/* } */
 
 /* Hover Effect */
-.menu-icon:hover div {
-    background: linear-gradient(90deg, #f1f1f1, #c4b58d); /* Slightly enhanced contrast */
+/* .menu-icon:hover div {
+    background: linear-gradient(90deg, #f1f1f1, #c4b58d); 
     transform: scaleX(1.1);
-}
+} */
 
 /* Opening Animation */
-.menu-icon.open div:nth-child(1) {
+/* .menu-icon.open div:nth-child(1) {
     transform: translateY(6px) rotate(45deg);
 }
 .menu-icon.open div:nth-child(2) {
@@ -112,7 +111,7 @@ body {
 }
 .menu-icon.open div:nth-child(3) {
     transform: translateY(-6px) rotate(-45deg);
-}
+} */
 
 
 
@@ -121,27 +120,32 @@ body {
 .navbar {
     display: flex;
     align-items: center;
-    background: linear-gradient(180deg, #1a1a1a, #000000); /* Black Gradient */
-    padding: 1.2rem 2rem;
-    color: #f5f5f5; /* Light Gray for Readability */
-    flex-wrap: wrap;
-    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.2); /* Stronger Shadow for Depth */
+    justify-content: space-between;
+    position: fixed; /* stays on top while scrolling */
+    top: 0;
+    left: 0;
     width: 100%;
-    border-bottom: 2px solid #444; /* Dark Gray Border */
+    height: 76px;
+    padding: 1rem 2rem;
+    z-index: 1000;
+
+    /* Light Glass effect */
+    background: rgba(255, 255, 255, 0.7); /* translucent white */
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1); /* soft gray border */
+    color: #1a1a1a; /* dark text for light mode */
 }
 
 /* 🌟 Logo Styling - White for Visibility */
 .navbar .logo {
-    /* font-family: "Cinzel", serif; */
     font-family: "Cuprum", sans-serif;
-    font-size: 25px; /* Keeping the original size */
+    font-size: 24px;
     font-weight: bold;
-    background: linear-gradient(120deg, #ffffff 50%, #E6B800 50%); /* Equal White-Gold Blend */
+    background: linear-gradient(120deg, #1a1a1a 50%, #E6B800 50%); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-transform: none;
     letter-spacing: 1.5px;
-    text-shadow: 1px 1px 2px rgba(230, 184, 0, 0.3); /* Soft Gold Glow */
 }
 
 
@@ -156,20 +160,20 @@ body {
 }
 
 /* 🛒 Cart Button - Slightly White-Tinted */
-.navbar .icons a.cart {
+/* .navbar .icons a.cart {
     color: #e0e0e0; /* Light Gray */
-    font-weight: bold;
+    /* font-weight: bold;
     text-decoration: none;
     padding: 6px 12px;
     border-radius: 4px;
     transition: all 0.3s ease-in-out;
-}
+} */ 
 
 /* 🛒 Cart Hover - Soft Contrast */
-.navbar .icons a.cart:hover {
+/* .navbar .icons a.cart:hover {
 
     color: #ffffff; /* White Text */
-}
+/* } */ 
 
 /* 🔥 Logout Button - Subtle & Refined */
 .navbar .icons a.logout {
@@ -186,34 +190,41 @@ body {
     color: #ffffff; /* White for Visibility */
 }
 
-.nav-links {
+/* .nav-links {
+    list-style: none;
     display: flex;
-    flex-wrap: wrap;  /* Allow items to wrap */
-    justify-content: center;
-    gap: 1rem; /* Adds spacing between buttons */
-    max-width: 100%; /* Prevents overflow */
-    padding: 1rem;
-    overflow: hidden; /* Ensures buttons don’t go outside */
+    gap: 25px;
 }
 
-.nav-links button {
-    flex: 1 1 auto; /* Flexible but doesn't force equal widths */
-    min-width: 4rem; /* Adjusted for small screens */
+.nav-links li a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #f5f5f5;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #1d9030;
+} */
+
+/* .nav-links button {
+    flex: 1 1 auto; /
+    min-width: 4rem; 
     padding: 0.5rem 1rem;
     background: #6a0dad;
     color: white;
     border: none;
     border-radius: 0.5rem;
     text-align: center;
-    font-size: 1rem; /* Scales with screen size */
-    white-space: nowrap; /* Prevents text from breaking */
-}
+    font-size: 1rem; 
+    white-space: nowrap; 
+} */
 
-.navbar .nav-links {
-    margin-left: 50px; /* Adjust so "Home" doesn't overlap with menu */
+/* .navbar .nav-links {
+    margin-left: 50px; 
     display: flex;
     gap: 20px;
-}
+} */
 
 
 .container {
@@ -230,8 +241,10 @@ body {
 .profile-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #1C1C1C, #444); /* Deep black fading into steel gray */
-    color: #EAEAEA; /* Soft white for contrast */
+    background: rgba(240, 240, 240, 0.7); /* Lighter contrast */
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    color: #1a252f; /* Dark navy for text */
     font-size: 24px;
     font-weight: bold;
     display: flex;
@@ -239,91 +252,22 @@ body {
     justify-content: center;
     border-radius: 50%;
     text-transform: uppercase;
-    border: 3px solid #555; /* Muted metallic gray border */
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 10px rgba(100, 100, 100, 0.4), /* Subtle soft glow */
-                inset 2px 2px 5px rgba(0, 0, 0, 0.5); /* Inner depth */
+    border: 1.5px solid rgba(0, 0, 0, 0.2); /* More defined border */
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden; /* For ripple effect if needed */
 }
 
-/* 🔥 Hover Effect: "Mystic Pulse" */
+/* Hover: smooth lift only */
 .profile-icon:hover {
-    background: linear-gradient(135deg, #252525, #666); /* Dark charcoal with gray highlights */
-    border-color: #888; /* Slightly lighter gray border */
-    box-shadow: 0 0 12px rgba(160, 160, 160, 0.6), /* Soft glowing aura */
-                inset 3px 3px 7px rgba(0, 0, 0, 0.5);
-}
-
-/* 🖤 Click Effect: "Pressed Carbon" */
-.profile-icon:active {
-    transform: scale(1.05) translateY(2px); /* Pressed button effect */
-    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.6); /* Deep press effect */
+    background: rgba(255, 255, 255, 0.85);
+    transform: translateY(-4px) scale(1.05);
+    border-color: rgba(0, 0, 0, 0.35);
 }
 
 
 
-/* Sidebar Links */
-.sidebar {
-    background: rgb(10 10 10 / 72%);/* Deep dark with transparency */
-    padding: 20px;
-    border-radius: 12px;
-    width: 250px;
-    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.6); /* Soft shadow */
-    border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle border */
-    backdrop-filter: blur(6px); /* Frosted glass effect */
-}
-
-/* Sidebar Title */
-.sidebar h2 {
-    text-align: center;
-    color: #e0e0e0; /* Soft white */
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.15); /* Minimal separator */
-    padding-bottom: 10px;
-}
-
-/* Sidebar List */
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* Sidebar List Items */
-.sidebar ul li {
-    margin-bottom: 12px;
-}
-
-/* Sidebar Links */
-.sidebar ul li a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 12px;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: 0.3s ease-in-out;
-    background: rgba(0, 0, 0); /* Deep sleek background */
-    color: #e0e0e0; /* Light Grey for better contrast */
-    border: 1px solid rgba(255, 255, 255, 0.12); /* Subtle borders */
-    transition: 0.3s ease-in-out;
-}
-
-/* Golden Hover Effect */
-.sidebar ul li a:hover {
-    background: rgba(0, 0, 0); /* Slightly lighter tone */
-    color: #FFD700; /* Soft Golden */
-    border-color: rgba(255, 215, 0, 0.6); /* Gold border */
-    text-shadow: 0 0 6px rgba(255, 215, 0, 0.7); /* Subtle golden glow */
-    transform: translateY(-2px); /* Gentle lift */
-}
 
 
 
@@ -340,47 +284,51 @@ body {
 
 /* Categories */
 .categories {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    /* top: 0;
+    z-index: 1000; */
     display: flex;
-    justify-content: center;
-    gap: 50px;
-    background: rgba(20, 20, 20, 0.5); /* Transparent but visible */
-    padding: 10px 20px;
-    backdrop-filter: blur(10px); /* Stronger blur effect for distinction */
+    justify-items: flex-end;
+    gap: 20px; 
+    /* background: rgba(20, 20, 20, 0.9);  */
+    /* padding: 5px 10px; 
     border-radius: 0;
-    width: 100%;
-    box-shadow: -2px 1px 20px 20px rgba(0, 0, 0, 0.2) /* Soft shadow to separate it slightly */
+    width: 80%; */
+    /* box-shadow: -2px 1px 15px 10px rgba(0, 0, 0, 0.15);  */
 }
+
 
 /* Default menu items */
 .categories a {
     font-family: "Josefin Sans", sans-serif;
     text-decoration: none;
-    color: #e0e0e0; /* Softer grayish white */
+    color: #333; /* Dark gray */
     font-size: 16px;
     padding: 8px 15px;
     min-width: 100px;
     text-align: center;
     display: inline-block;
-    transition: all 0.3s ease-in-out;
     font-weight: bold;
     text-transform: capitalize;
     letter-spacing: 1px;
     position: relative;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* Hover effect - subtle glow with slight color shift */
 .categories a:hover {
-    background: rgba(255, 255, 255, 0.08); /* Soft translucent effect */
-    color: #E6B800; /* Rich golden hue */
-    border-radius: 4px; /* Slightly rounded edges */
-    transform: scale(1.03); /* Subtle scale-up */
-    transition: transform 0.2s ease-out, background 0.25s ease-in-out, color 0.2s ease-in-out;
-    font-weight: 600; /* Slight emphasis */
-
+    background: linear-gradient(90deg, #ff6f61, #e6b800, #6a5acd); 
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: colorShift 2s linear infinite;
+    transform: scale(1.05);
 }
+
+@keyframes colorShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 
 
 
@@ -406,34 +354,33 @@ body {
     left: 50%;
     top: 100%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.89); /* Aged parchment + deep rustic brown */
-    width: 90vw;
-    max-width: 600px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* A bit more depth */
-    border: 1px solid rgba(200, 150, 80, 0.4); /* Subtle golden accent */
+    background: rgba(255, 254, 254, 0.25); /* translucent white */
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 8px 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    min-width: 200px;
     z-index: 1000;
-    border-radius: 8px; /* Softer edges for a refined look */
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-    color: #ffffffff;
-    padding: 16px 16px;
+    color: #ffffff; /* White text for glass */
+    padding: 12px 16px;
     text-decoration: none;
     display: block;
-    align-items: center;
-    /* border-bottom: 1px solid #ddd; */
     border-radius: 8px;
-
+    transition: all 0.3s ease;
 }
 
 
 .dropdown-content a:hover {
-    background: rgba(224, 194, 139, 0.8); /* Aged parchment gold with slight transparency */
-    color: #3d2b1b; /* Deep rugged brown for contrast */
-    border-radius: 8px;
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    background: rgba(255, 255, 255, 0.3); /* slightly brighter glass */
+    color: #f0f0f0; /* light gray for contrast against brighter glass */
+    transform: translateY(-2px) scale(1.02);
 }
 
 
@@ -536,8 +483,8 @@ body {
 /* Footer */
 footer {
     text-align: center;
-    background: #1E1E2E;
-    color: white;
+    background: #f5f5f5; /* light gray */
+    color: #333;
     padding: 1rem;
     position: relative;
     bottom: 0;
@@ -565,51 +512,51 @@ footer {
     }
 
     .cards-container {
-        grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+        grid-template-columns: repeat(2, 1fr); 
         gap: 15px;
     }
 
     .banner-container {
-        width: 100vw; /* Full width */
-        height: 480px; /* Adjusted height */
-        margin: 10px 0; /* Centered spacing */
-        border-radius: 0; /* Remove rounded edges */
+        width: 100vw; 
+        height: 480px; 
+        margin: 10px 0; 
+        border-radius: 0; 
     }
 }
 
 /* 📱 iPhone X & Small Devices */
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     .navbar {
         flex-direction: column;
         text-align: center;
     }
 
     .navbar input {
-        width: 90%; /* Search bar takes full width */
+        width: 90%; 
     }
 
     .cards-container {
-        grid-template-columns: 1fr; /* One card per row */
+        grid-template-columns: 1fr;
     }
 
     .banner-container {
-        width: 100vw; /* Full width */
-        height: 420px; /* Slightly reduced for better fit */
+        width: 100vw; 
+        height: 420px; 
         margin: 0;
         padding: 0;
         border-radius: 0;
     }
 
     .banner-overlay {
-        background: rgba(0, 0, 0, 0.3); /* Darken slightly for readability */
+        background: rgba(0, 0, 0, 0.3); 
     } 
     .categories-search {
         width: 90%;
     }
-}
+} */
 
 /* 📱 Ultra-Small Devices (Like iPhone SE, Foldables) */
-@media screen and (max-width: 480px) {
+/* @media screen and (max-width: 480px) {
     .navbar {
         padding: 5px 0;
     }
@@ -619,7 +566,7 @@ footer {
     }
 
     .cards-container {
-        grid-template-columns: 1fr; /* Full-width cards */
+        grid-template-columns: 1fr; 
         gap: 10px;
     }
 
@@ -629,9 +576,9 @@ footer {
     }
 
     .banner-container {
-        height: 350px; /* Adjusted for smaller screens */
+        height: 350px; 
     }
-}
+} */
 
 
 
@@ -645,39 +592,7 @@ footer {
 
 
 
-/* NOT IN USE FOR NOW  */
 
-/* Center text styling */
-.navbar-center-text {
-    flex-grow: 1;
-    text-align: center;
-    font-size: 18px;
-    font-family: "Charm", cursive;
-    color: #E6B400; /* Rich golden-yellow, more striking */
-    text-transform: capitalize;
-    letter-spacing: 1.8px;
-    text-shadow: 
-        3px 3px 5px rgba(0, 0, 0, 0.8), /* Deep rugged shadow */
-        0 0 6px rgba(230, 180, 0, 0.7), /* Soft golden glow */
-        -2px -2px 3px rgba(0, 0, 0, 0.4); /* Worn-out text effect */
-}
-
-/* Cursor Blinking Effect */
-.cursor {
-    font-size: 18px;
-    font-family: "Charm", cursive;
-    color: #FFA500; /* Vibrant burnt-orange, adding contrast */
-    animation: blink 0.8s infinite;
-    text-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.6), 
-        0 0 6px rgba(255, 165, 0, 0.7); /* More subtle glowing effect */
-}
-
-@keyframes blink {
-    50% {
-        opacity: 0;
-    }
-}
 
 
 

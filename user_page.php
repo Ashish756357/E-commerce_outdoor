@@ -31,12 +31,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <!-- Navbar -->
     <?php include 'components/navbar.php'; ?>
     <!-- Scrollable Categories with Search Bar -->
-    <div class="categories">
-    <!-- <div class="menu-icon">
-           <div></div>
-           <div></div>
-           <div></div>
-        </div> -->
+    <!-- <div class="categories">
 
     <a href="#">Home</a>
     <a href="#">Products</a>
@@ -75,12 +70,11 @@ if (session_status() === PHP_SESSION_NONE) {
     </ul>
     <a href="cart_user/cart.php">My Order</a>
     <a href="cart_user/info.php">Info</a>
-    <!-- Search Bar -->
     <input type="text" class="categories-search" placeholder="search categories...">
 
 
     
-</div>
+</div> -->
 
     <!-- php include 'components/banner.php' -->
     <?php include 'components/brand.php';?>

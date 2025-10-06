@@ -1,27 +1,54 @@
 body {
     font-family: "Segoe UI", sans-serif;
     margin: 0;
-    background: #000000;
+    background-color: #fbfbfb;
     color: #333;
 }
 
 /* Section Header */
 .section-header {
     text-align: center;
-    padding: 60px 20px 40px;
 }
 
 .section-header h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #0781fb;
     margin-bottom: 10px;
+    display: inline-flex; /* inline so it centers as a block */
+    align-items: center;
+    gap: 10px;
 }
 
-.section-header p {
-    color: #ffffff;
-    font-size: 1.1rem;
+
+/* Earth logo stays fixed color */
+.section-header h2 .earth {
+    font-size: 2.5rem;
+    color: #0781fb;
 }
+
+/* Title text gets gradient */
+.section-header h2 .title {
+    background: linear-gradient(90deg, #0781fb, #42e695, #0781fb);
+    background-size: 200% auto; /* allow movement */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    animation: gradientFlow 3s linear infinite;
+}
+
+/* Gradient animation */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #6a11cb; /* purple shade */
+}
+
 
 /* Package Cards Grid */
 .package-container {
@@ -35,18 +62,22 @@ body {
 
 /* Card Style */
 .package-card {
-    background: #000000;
+    background: #ffffff; /* solid clean background */
     border-radius: 14px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* softer shadow for depth */
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
+    border: 1px solid #e6e6e6; /* light subtle border */
+    ttransition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
+
+
 .package-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transform: translateY(-10px) scale(1.05) rotateX(2deg);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
 }
 /* Image Section */
 .card-image {
@@ -94,29 +125,55 @@ body {
 /* Description */
 .card-content .description {
     font-size: 0.95rem;
-    color: #ffffff;
+    color: #4a4a4a; /* softer gray for readability */
     margin-bottom: 20px;
     line-height: 1.6;
-    flex-grow: 1; /* pushes button down */
+    flex-grow: 1;
 }
 
 /* Button stays at bottom */
 .book-btn {
+    text-decoration: none;
   display: block;
   width: 80%;
   margin: 15px auto 20px;
   padding: 12px;
   background: linear-gradient(45deg, #ff6b6b, #ff9f43);
+  background-size: 200% 200%; /* Allow smooth shifting */
+  background-position: left center; /* Starting position */
   color: #fff;
   font-weight: bold;
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(255,107,107,0.3);
+  transition: background-position 1s ease, transform 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
+
 .book-btn:hover {
-  background: linear-gradient(45deg, #ff4757, #ffa502);
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(255,107,107,0.5);
+  background: linear-gradient(45deg, #ff6b6b, #ff9f43, #2ecc71, #3498db); /* Blend both sets */
+  background-size: 200% 200%;
+  background-position: right center; /* Slide to reveal new colors */
+  transform: translateY(-3px) scale(1.03);
 }
+
+/* Ripple effect stays same */
+.book-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.15);
+  transition: all 0.6s ease;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+}
+
+.book-btn:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+}
+
